@@ -1,0 +1,23 @@
+---
+const { current = "/" } = Astro.props;
+const links = [
+  { href: "/", label: "首页" },
+  { href: "/posts", label: "文章" },
+  { href: "/about", label: "关于" },
+];
+---
+
+<header class="site-header">
+  <a class="wordmark" href="/" aria-label="Tinylion Journal 首页">
+    <span>@tinylion</span>
+  </a>
+  <nav aria-label="主导航">
+    {links.map((link) => <a href={link.href} class:list={[{ active: current === link.href }]}>{link.label}</a>)}
+  </nav>
+  <button class="theme-button" type="button" aria-label="切换夜间模式">◐</button>
+</header>
+
+<script>
+  const button = document.querySelector<HTMLButtonElement>(".theme-button");
+  button?.addEventListener("click", () => document.documentElement.classList.toggle("night"));
+</script>

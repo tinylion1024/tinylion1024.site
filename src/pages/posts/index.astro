@@ -1,0 +1,25 @@
+---
+import Base from "../../layouts/Base.astro";
+import { posts, topicAccent } from "../../data/posts";
+---
+
+<Base title="文章 — Tinylion Journal" current="/posts">
+  <section class="archive-head">
+    <div class="eyebrow">THE ARCHIVE</div>
+    <h1>所有文章</h1>
+    <p>零散想法，按发生的顺序排列。</p>
+  </section>
+  <section class="archive-list">
+    {posts.map((post, i) => (
+      <article class="post-row">
+        <div class="post-number">{String(i + 1).padStart(2, "0")}</div>
+        <div>
+          <div class="post-meta"><span style={`--accent:${topicAccent[post.topic]}`}>{post.topic}</span><time>{post.date} · {post.readTime}</time></div>
+          <h2><a href={`/posts/${post.slug}`}>{post.title}</a></h2>
+          <p>{post.summary}</p>
+        </div>
+        <a class="arrow" href={`/posts/${post.slug}`} aria-label={`阅读：${post.title}`}>↗</a>
+      </article>
+    ))}
+  </section>
+</Base>

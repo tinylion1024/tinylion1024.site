@@ -1,0 +1,24 @@
+---
+import Base from "../../layouts/Base.astro";
+import { posts, topicAccent } from "../../data/posts";
+
+export function getStaticPaths() {
+  return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+}
+
+const { post } = Astro.props;
+---
+
+<Base title={`${post.title} — Tinylion Journal`} description={post.summary} current="/posts">
+  <article class="essay">
+    <a class="back-link" href="/posts">← 回到文章列表</a>
+    <div class="post-meta"><span style={`--accent:${topicAccent[post.topic]}`}>{post.topic}</span><time>{post.date} · {post.readTime}</time></div>
+    <h1>{post.title}</h1>
+    <p class="dek">{post.summary}</p>
+    <div class="essay-rule"></div>
+    <div class="prose">
+      {post.body.map((paragraph) => <p>{paragraph}</p>)}
+    </div>
+    <p class="essay-end">— 完 —</p>
+  </article>
+</Base>
