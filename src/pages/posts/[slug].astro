@@ -12,7 +12,7 @@ const link = (path = "") => `${base}/${path}`;
 const visualsAfter = (paragraph: number) => post.visuals?.filter((visual) => visual.afterParagraph === paragraph) ?? [];
 ---
 
-<Base title={`${post.title} — Tinylion Journal`} description={post.summary} current="/posts">
+<Base title={`${post.title} — tinylion1024`} description={post.summary} current="/posts">
   <article class="essay">
     <a class="back-link" href={link("posts")}>← 回到文章列表</a>
     <div class="post-meta"><span style={`--accent:${topicAccent[post.topic]}`}>{post.topic}</span><time>{post.date} · {post.readTime}</time></div>
