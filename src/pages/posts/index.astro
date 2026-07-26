@@ -2,7 +2,7 @@
 import Base from "../../layouts/Base.astro";
 import { posts, topicAccent } from "../../data/posts";
 const base = import.meta.env.BASE_URL;
-const link = (path = "") => `${base}/${path}`;
+const link = (path = "") => `${base}${base.endsWith("/") ? "" : "/"}${path}`;
 ---
 
 <Base title="文章 — tinylion1024" current="/posts">

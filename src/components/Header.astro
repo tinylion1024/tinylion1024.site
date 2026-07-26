@@ -1,7 +1,7 @@
 ---
 const { current = "/" } = Astro.props;
 const base = import.meta.env.BASE_URL;
-const link = (path = "") => `${base}/${path}`;
+const link = (path = "") => `${base}${base.endsWith("/") ? "" : "/"}${path}`;
 const links = [
   { href: link(), label: "首页" },
   { href: link("posts"), label: "文章" },
