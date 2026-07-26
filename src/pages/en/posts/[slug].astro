@@ -38,6 +38,14 @@ const chinesePath = post.translationOf ? `/posts/${post.translationOf}` : "/post
         );
       })}
     </div>
+    {post.sources && (
+      <aside class="article-sources">
+        <p>Sources and data</p>
+        <ol>
+          {post.sources.map((source) => <li><a href={source.href} target="_blank" rel="noreferrer">{source.label}</a></li>)}
+        </ol>
+      </aside>
+    )}
     <p class="essay-end">— End —</p>
   </article>
 </Base>

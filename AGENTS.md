@@ -12,7 +12,8 @@
 - Write in a direct, evidence-led voice about product, growth, technology, and personal thinking.
 - For time-sensitive or externally sourced claims, include dated context and source links in the article.
 - Keep article emphasis restrained: highlight only a small number of conclusion-bearing phrases, with at most one highlight per paragraph.
-- When adding an English version, rewrite for an international reader instead of translating line by line.
+- Publish every article in both Chinese and English. The Chinese article is the default; its English counterpart must use the matching slug under \`/en/posts/\`.
+- Rewrite English versions for an international reader instead of translating line by line.
 
 ## Site conventions
 

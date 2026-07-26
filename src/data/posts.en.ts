@@ -2,6 +2,37 @@ import type { Post } from "./posts";
 
 export const postsEn: Post[] = [
   {
+    slug: "ai-llm-landscape-july-2026",
+    translationOf: "ai-llm-landscape-july-2026",
+    title: "The LLM Landscape on July 26, 2026: Not a Three-Horse Race, but Five Fronts",
+    summary: "The frontier gap is now measured in single-digit points. Competition has not ended—it has split across capability, cost, speed, agent delivery, and open weights.",
+    date: "2026.07.26",
+    readTime: "8 min",
+    topic: "Technology",
+    sources: [
+      { label: "Artificial Analysis model, cost, and speed leaderboard", href: "https://artificialanalysis.ai/models" },
+      { label: "Six labs above 50 on the Intelligence Index", href: "https://artificialanalysis.ai/articles/four-frontier-launches-in-eight-days-six-labs-now-field-a-model-above-50-on-the-artificial-analysis-intelligence-index" },
+      { label: "Claude Opus 5 on agentic knowledge work", href: "https://artificialanalysis.ai/articles/claude-opus-5-leader-agentic-knowledge-work" },
+      { label: "Kimi K3 on agentic knowledge work", href: "https://artificialanalysis.ai/articles/kimi-k3-agentic-knowledge-benchmark" },
+      { label: "Inkling open-weights evaluation", href: "https://artificialanalysis.ai/articles/thinking-machines-has-released-inkling-the-new-leading-u-s-open-weights-model" },
+    ],
+    body: [
+      "“Which LLM is best?” is no longer a useful enough question. Artificial Analysis’ July 2026 snapshot does not reveal a new uncontested winner. It reveals something harder and more useful: leading models are converging in general capability while diverging sharply in cost, latency, long-horizon execution, and deployment control.",
+      "The frontier is now competing on five fronts: composite intelligence, the ability to deliver agentic work, cost per completed task, speed and latency, and the openness of weights and deployment. A single leaderboard score can narrow a shortlist, but it can no longer select a production model on its own.",
+      "First, the frontier is no longer a two-company story. In mid-July, six labs had models above 50 on the Artificial Analysis Intelligence Index: Anthropic, OpenAI, Moonshot AI, SpaceXAI, Z AI, and Meta. The top models span only a few index points. The question has shifted from who is far ahead to which model is a better fit for a particular workload.",
+      "That shift makes rankings less like a verdict and more like a map. A composite score does not tell you which model should own a code-review workflow, a financial-research task, a high-volume support queue, or a private on-premise deployment. Model selection is moving from brand preference to workload design.",
+      "Second, agentic capability is becoming the meaningful test. AA-Briefcase evaluates long-horizon knowledge work through deliverables such as research reports, spreadsheets, and presentations. In Artificial Analysis’ July 24 evaluation, Claude Opus 5 reached 1720 Elo at maximum effort, but took more than 36 minutes per task. Better is still not the same as faster.",
+      "This is the operational reality behind modern reasoning models. They can browse, use tools, create artifacts, and correct themselves across many turns—but that capability consumes a budget. High-value, low-frequency work can justify it. Interactive products, batch pipelines, and high-concurrency systems often cannot.",
+      "Third, Chinese labs are no longer merely low-cost alternatives. Kimi K3 reached 57 on the Intelligence Index and 1543 Elo on AA-Briefcase. The same evaluation reported roughly 56 minutes and $10.57 per task on average. That is not evidence that one region has won. It is evidence that frontier capability has become multipolar, while speed, cost, and operations remain independent variables.",
+      "Fourth, the steepest movement is in the price-performance frontier. Artificial Analysis reported that near-frontier cost per task fell by two to three times in eight days as more models entered the 51–59 range. The default architecture should therefore not be “send everything to the flagship.” It should be model routing: escalate hard tasks, downshift routine work, cache aggressively, and batch when possible.",
+      "Fifth, open weights remain their own arena. Thinking Machines’ Inkling reached 41 on the index as a leading U.S. open-weights release in this evaluation, with multimodal inputs and longer context options for the weights. It still trails the closed frontier in composite capability. Its value is not simply a benchmark score: it is private deployment, data boundaries, controllable latency, fine-tuning, and supply-chain choice.",
+      "The larger story for the second half of 2026 is that models are moving into the background while systems move to the foreground. Users do not pay for an API label; they pay for reliable delivery. Task decomposition, routing, context caching, tests, and human review now matter as much as the model at the top of a chart.",
+      "My practical recommendation is straightforward: keep a frontier model for critical reasoning and difficult code; use a low-latency, low-cost model for drafting, classification, and volume; retain an open-weight or compatible-provider option for resilience. Then write those choices down as routing and acceptance rules instead of leaving them as an expert’s personal preference.",
+      "One final caution: Artificial Analysis’ Intelligence Index combines nine evaluations, while AA-Briefcase focuses on long-horizon knowledge work. Both are valuable, but neither is your user, your data, or your product. Treat the leaderboard as a radar, not a steering wheel. Use it to narrow candidates; use your own tasks, cost profile, and failure cases to decide.",
+    ],
+    highlights: ["five fronts", "better is still not the same as faster", "model routing", "open weights remain their own arena", "a radar, not a steering wheel"],
+  },
+  {
     slug: "goodbye-superpowers-selective-ai-coding-workflows",
     translationOf: "goodbye-superpowers-selective-ai-coding-workflows",
     title: "Goodbye, Superpowers: I Removed the Always-on Ceremony, Not Skills",
