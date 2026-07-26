@@ -46,8 +46,8 @@ export const postsEn: Post[] = [
     topic: "AI Building",
     featured: true,
     startHere: true,
-    series: "Minimal AI Workflows",
-    seriesSlug: "minimal-ai-workflows",
+    series: "AI Delivery Workflows",
+    seriesSlug: "ai-delivery-workflows",
     visuals: [{ src: "/articles/selective-powers-workflow.png", alt: "A contrast between a dense always-on workflow and a modular risk-based workflow", afterParagraph: 5, caption: "The goal is not less process. It is process whose weight matches the risk." }],
     body: [
       "I recently removed Superpowers from my default workflow. Not because it is bad—quite the opposite. It made a powerful point early in the AI coding era: agents are capable, but they are also impulsive. Without guardrails, they start before understanding the task and declare success before running anything.",
@@ -71,8 +71,8 @@ export const postsEn: Post[] = [
     topic: "AI Building",
     featured: true,
     startHere: true,
-    series: "Minimal AI Workflows",
-    seriesSlug: "minimal-ai-workflows",
+    series: "AI Delivery Workflows",
+    seriesSlug: "ai-delivery-workflows",
     visuals: [
       { src: "/articles/ai-coding-blast-radius.png", alt: "A comparison between small local changes and large cross-module changes", afterParagraph: 3, caption: "The clearer the blast radius, the easier it is to choose a safe execution mode." },
       { src: "/articles/ai-coding-context-interface.png", alt: "Documentation, source code, and verification acting as an interface for an agent", afterParagraph: 5, caption: "Project documentation is a reusable context interface, not an afterthought." },
@@ -99,8 +99,8 @@ export const postsEn: Post[] = [
     readTime: "7 min",
     topic: "AI Building",
     featured: true,
-    series: "Minimal AI Workflows",
-    seriesSlug: "minimal-ai-workflows",
+    series: "AI Delivery Workflows",
+    seriesSlug: "ai-delivery-workflows",
     sources: [
       { label: "tmux Getting Started: sessions, windows, panes, detach and reattach", href: "https://github.com/tmux/tmux/wiki/Getting-Started" },
       { label: "Zellij documentation: layouts", href: "https://zellij.dev/documentation/layouts.html" },
@@ -131,8 +131,8 @@ export const postsEn: Post[] = [
     readTime: "6 min",
     topic: "AI Building",
     featured: true,
-    series: "Minimal Toolset",
-    seriesSlug: "minimal-toolset",
+    series: "Tool Decisions",
+    seriesSlug: "tool-decisions",
     sources: [
       { label: "Warp documentation: terminal and agent modes, with third-party CLI agents", href: "https://docs.warp.dev/" },
       { label: "Warp agent context: images, URLs, files, and code blocks", href: "https://docs.warp.dev/agent-platform/local-agents/overview" },

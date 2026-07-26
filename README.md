@@ -1,6 +1,6 @@
 # tinylion1024.site
 
-A bilingual personal site about minimalist AI product practice: build with AI, validate judgment through real growth, and remove low-value complexity.
+A bilingual personal site about product judgment, AI delivery, and growth validation.
 
 Live site: [tinylion1024.site](https://tinylion1024.site/)
 

@@ -31,7 +31,7 @@ export const GET: APIRoute = ({ site }) => {
   <channel>
     <title>tinylion1024</title>
     <link>${origin.href}</link>
-    <description>AI 时代的极简产品实践：用 AI 构建产品，用真实增长验证判断。</description>
+    <description>关于产品判断、AI 构建与增长验证的双语个人网站。</description>
     <language>zh-CN</language>
     <atom:link href="${feedUrl.href}" rel="self" type="application/rss+xml" />
     ${items}

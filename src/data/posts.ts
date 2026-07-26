@@ -70,8 +70,8 @@ export const posts: Post[] = [
     topic: "AI 构建",
     featured: true,
     startHere: true,
-    series: "极简 AI 工作流",
-    seriesSlug: "minimal-ai-workflows",
+    series: "AI 交付工作流",
+    seriesSlug: "ai-delivery-workflows",
     visuals: [
       {
         src: "/articles/selective-powers-workflow.png",
@@ -109,8 +109,8 @@ export const posts: Post[] = [
     topic: "AI 构建",
     featured: true,
     startHere: true,
-    series: "极简 AI 工作流",
-    seriesSlug: "minimal-ai-workflows",
+    series: "AI 交付工作流",
+    seriesSlug: "ai-delivery-workflows",
     visuals: [
       {
         src: "/articles/ai-coding-blast-radius.png",
@@ -157,8 +157,8 @@ export const posts: Post[] = [
     readTime: "8 min",
     topic: "AI 构建",
     featured: true,
-    series: "极简 AI 工作流",
-    seriesSlug: "minimal-ai-workflows",
+    series: "AI 交付工作流",
+    seriesSlug: "ai-delivery-workflows",
     sources: [
       { label: "tmux 官方 Getting Started：会话、窗口、窗格与断开重连", href: "https://github.com/tmux/tmux/wiki/Getting-Started" },
       { label: "Zellij 官方文档：Layouts", href: "https://zellij.dev/documentation/layouts.html" },
@@ -188,8 +188,8 @@ export const posts: Post[] = [
     readTime: "7 min",
     topic: "AI 构建",
     featured: true,
-    series: "极简工具箱",
-    seriesSlug: "minimal-toolset",
+    series: "工具选择",
+    seriesSlug: "tool-decisions",
     sources: [
       { label: "Warp 官方文档：终端与 Agent 模式、第三方 CLI Agent 支持", href: "https://docs.warp.dev/" },
       { label: "Warp 官方文档：Agent Context 可附加图片、URL、文件与代码", href: "https://docs.warp.dev/agent-platform/local-agents/overview" },

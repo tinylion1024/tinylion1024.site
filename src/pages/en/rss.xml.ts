@@ -31,7 +31,7 @@ export const GET: APIRoute = ({ site }) => {
   <channel>
     <title>tinylion1024 — English</title>
     <link>${new URL("/en/", origin).href}</link>
-    <description>Minimal AI product practice: build with AI, validate judgment through real growth.</description>
+    <description>Product judgment, AI delivery, and growth validation tested through real products.</description>
     <language>en</language>
     <atom:link href="${feedUrl.href}" rel="self" type="application/rss+xml" />
     ${items}

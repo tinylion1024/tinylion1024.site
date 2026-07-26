@@ -2,11 +2,11 @@
 
 ## Positioning
 
-tinylion1024 is a minimalist AI product builder.
+tinylion1024 works across product judgment, AI delivery, and growth validation.
 
 The working sentence is:
 
-> Build products with AI, validate judgment through real growth, and remove low-value complexity.
+> Turn product judgment into real delivery, then test it through real use and growth.
 
 Every page and article should strengthen at least one part of that sentence. The site is not a broad technology-news feed, a tool-review directory, or a personal résumé.
 
@@ -35,7 +35,7 @@ These are the ideas the archive should keep testing, refining, or challenging:
 1. A product is a set of validated trade-offs, not a feature list.
 2. Models are infrastructure; the delivery system determines whether AI creates value.
 3. Growth is the result of value being repeatedly used and shared, not a traffic trick.
-4. Minimalism is the practice of removing low-value complexity, not a visual style.
+4. Tools and process should serve delivery rather than become the story.
 5. Process should scale with risk. Small reversible work should stay light.
 
 ## Publishing cadence
