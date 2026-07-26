@@ -24,9 +24,12 @@ const alternates = [{ lang: "zh-CN", href: `/posts/${post.slug}` }, ...(englishP
     <p class="dek">{post.summary}</p>
     <div class="essay-rule"></div>
     <div class="prose">
-      {post.body.map((paragraph, index) => (
+      {post.body.map((paragraph, index) => {
+        const highlight = post.highlights?.find((term) => paragraph.includes(term));
+        const highlightIndex = highlight ? paragraph.indexOf(highlight) : -1;
+        return (
         <>
-          <p>{paragraph}</p>
+          <p>{highlight ? <>{paragraph.slice(0, highlightIndex)}<mark class="key-phrase">{highlight}</mark>{paragraph.slice(highlightIndex + highlight.length)}</> : paragraph}</p>
           {visualsAfter(index + 1).map((visual) => (
             <figure class="article-visual">
               <img src={link(visual.src)} alt={visual.alt} loading="lazy" width="1672" height="941" />
@@ -34,7 +37,8 @@ const alternates = [{ lang: "zh-CN", href: `/posts/${post.slug}` }, ...(englishP
             </figure>
           ))}
         </>
-      ))}
+        );
+      })}
     </div>
     {post.sources && (
       <aside class="article-sources">

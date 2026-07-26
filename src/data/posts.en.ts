@@ -20,6 +20,7 @@ export const postsEn: Post[] = [
       "My replacement is simple: low-risk, reversible work gets a direct change and verification. Clear but cross-module work gets a short plan. Security, payments, permissions, migrations, and architectural changes earn the full treatment—research, isolated work, tests, review, and explicit acceptance criteria.",
       "I call this Selective Powers. Keep a small project contract always available: how to run the project, what must not change, and how to validate. Then load the heavy skill only when the task’s blast radius demands it. Stronger models do not mean we should run without process; they mean process itself must become selective."
     ],
+    highlights: ["every task should pay the same process tax", "rigor becomes theatre", "Skills should be a toolbox, not an operating system", "Selective Powers"],
   },
   {
     slug: "what-i-learned-from-pete-ai-coding-workflow",
@@ -44,5 +45,6 @@ export const postsEn: Post[] = [
       "Atomic commits make this speed controllable. Each commit should represent one intention and only the files that served it. That makes experiments safer, reviews clearer, and rollbacks cheap. AI increases write speed; version control is what limits the blast radius.",
       "The durable lesson is not a particular CLI or a terminal layout. It is to design AI coding as a production system: tasks and context are inputs, bounded parallelism is the process, runtime evidence is the output, and version control preserves the right to change your mind. Models will improve. This discipline will still decide whether improvement becomes reliable delivery."
     ],
+    highlights: ["a testable hypothesis", "blast radius", "context as an interface", "verify after generation", "Atomic commits"],
   },
 ];

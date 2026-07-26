@@ -18,6 +18,7 @@ export type Post = {
     href: string;
   }>;
   body: string[];
+  highlights?: string[];
 };
 
 export const posts: Post[] = [
@@ -52,6 +53,7 @@ export const posts: Post[] = [
       "最后也要给榜单降温。Artificial Analysis 的 Intelligence Index 是由 GDPval-AA、Terminal-Bench、SciCode、长上下文推理等九项评测组成的综合指标；AA-Briefcase 则特别衡量长程知识工作。它们都很有价值，但不是你的用户、你的数据或你的产品。把它们当作雷达，而不是方向盘：先用榜单缩小候选，再用自己的任务、成本和失败案例完成最终选择。",
       "截至 2026 年 7 月 26 日，我看到的不是“AI 已经分出胜负”，而是竞争终于进入了对用户更有利的阶段：顶级能力不再稀缺，价格快速下移，更多地区和更多部署方式可以参与。下一轮护城河，不会是谁先拥有模型，而是谁先把模型组织成可重复、可验证、可盈利的工作流。",
     ],
+    highlights: ["五条战线并行", "模型选择正在从选品牌，变成选工作负载", "更强，仍然不等于更快", "模型路由", "把它们当作雷达，而不是方向盘"],
   },
   {
     slug: "goodbye-superpowers-selective-ai-coding-workflows",
@@ -87,6 +89,7 @@ export const posts: Post[] = [
       "我把这套方法叫作 Selective Powers。默认是项目规范 + 最小修改 + 相关验证；需求模糊时调用 brainstorming，跨模块时调用 planning，疑难 Bug 时调用 debugging，高风险核心逻辑时调用 TDD，提交前调用 review。不是不用重流程，而是把它留给真正值得的任务。",
       "最后，卸载 Superpowers 并不意味着“以后都靠感觉写代码”。恰好相反：当流程不再替你做形式上的认真，你必须更清楚地定义目标、边界和验收。以前是模型能力不足，所以用重流程弥补；现在模型能力变强，重流程本身也可能成为瓶颈。熟练开发者的下一步，不是从 Superpowers 回到裸奔，而是从 Superpowers 走向 Selective Powers。",
     ],
+    highlights: ["每一个任务都必须缴纳同样的流程税", "流程成本与任务复杂度失配", "Skill 应该是工具箱，不应该变成操作系统", "让流程跟着风险走", "Selective Powers"],
   },
   {
     slug: "what-i-learned-from-pete-ai-coding-workflow",
@@ -132,6 +135,7 @@ export const posts: Post[] = [
       "因此，我不会把 Pete 的方式总结为“开更多窗口”或“只用某一个 CLI”。更准确的说法是：把 AI Coding 当作一套生产系统来设计。输入是任务与上下文，过程是受控的并行，输出必须经过运行时验证，版本控制负责保留选择权。模型会继续变强，但这套系统思维会持续决定谁能把能力转化为可靠的交付。",
       "接下来我会继续试验一个更适合自己的版本：默认单 Agent 完成可逆的小任务；涉及多个模块时先做只读分析；所有用户可见改动必须有真实页面或测试证据；每周留出固定时间让 Agent 清理重复、过期依赖和脆弱测试。目标不是让 AI 替我工作，而是让我把更多时间放在定义问题、做产品判断和看见真实用户上。",
     ],
+    highlights: ["任务要有边界，改动要有回声", "影响半径", "把上下文当作产品接口", "验证放在生成之后", "人必须持续拥有停止权"],
   },
 ];
 
