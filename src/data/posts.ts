@@ -213,14 +213,3 @@ export const posts: Post[] = [
     highlights: ["真正决定体验的往往是另外几件事", "Warp 是我的 AI 协作终端，Ghostty 是我的高频、纯粹的执行终端", "上下文在不同工具之间丢失", "主观延迟足够低", "让你更少离开工作状态的那个"],
   },
 ];
-
-export const topicAccent: Record<Post["topic"], string> = {
-  "AI 产品": "#0b63ce",
-  "AI 构建": "#5b5bd6",
-  增长验证: "#087f5b",
-  个人思考: "#a64515",
-  "AI Product": "#0b63ce",
-  "AI Building": "#5b5bd6",
-  "Growth Validation": "#087f5b",
-  "Personal Thinking": "#a64515",
-};

@@ -24,8 +24,7 @@ const prefix = isEnglish ? "en/" : "";
 
 {seriesPosts.length > 0 && (
   <aside class="series-reading">
-    <div class="eyebrow">{isEnglish ? "MORE IN THIS SERIES" : "继续阅读这个系列"}</div>
-    <h2>{currentPost.series}</h2>
+    <h2>{isEnglish ? `More from ${currentPost.series}` : `继续阅读：${currentPost.series}`}</h2>
     <ol>
       {seriesPosts.map((post) => (
         <li><a href={link(`${prefix}posts/${post.slug}`)}>{post.title}</a></li>
@@ -54,7 +53,6 @@ const prefix = isEnglish ? "en/" : "";
 <aside class="author-card">
   <img src={link("avatar.png")} alt={isEnglish ? "Pixel lion avatar for tinylion1024" : "tinylion1024 的像素风狮子头像"} width="460" height="460" />
   <div>
-    <span class="eyebrow">{isEnglish ? "ABOUT THE AUTHOR" : "关于作者"}</span>
     <h2>@tinylion1024</h2>
     <p>{isEnglish
       ? "I work across product judgment, AI delivery, and growth validation—and turn those ideas into things people can use."

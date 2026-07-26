@@ -2,7 +2,6 @@
 import Base from "../../layouts/Base.astro";
 import Newsletter from "../../components/Newsletter.astro";
 import { postsEn } from "../../data/posts.en";
-import { topicAccent } from "../../data/posts";
 
 const base = import.meta.env.BASE_URL;
 const link = (path = "") => `${base}${base.endsWith("/") ? "" : "/"}${path.replace(/^\//, "")}`;
@@ -21,7 +20,6 @@ const latestPosts = postsEn.slice(0, 4);
   <section class="hero">
     <img class="avatar" src={link("avatar.png")} alt="Pixel lion avatar for tinylion1024" width="460" height="460" />
     <div class="hero-copy">
-      <div class="hero-kicker">PRODUCT × AI × GROWTH</div>
       <h1>Build products. Test judgment.</h1>
       <p>Hi, I’m @tinylion1024. I work across product judgment, AI delivery, and growth validation—and turn those ideas into things people can actually use.</p>
       <div class="hero-foot">
@@ -33,13 +31,12 @@ const latestPosts = postsEn.slice(0, 4);
 
   <section class="start-section" aria-labelledby="start-here">
     <div class="section-heading">
-      <div><span class="eyebrow">START HERE</span><h2 id="start-here">Start here</h2></div>
+      <h2 id="start-here">Start here</h2>
       <p>Three pieces that explain how I approach products, AI delivery, and growth.</p>
     </div>
     <div class="start-grid">
-      {startHere.map((post, index) => (
+      {startHere.map((post) => (
         <a href={link(`en/posts/${post.slug}`)}>
-          <span>{String(index + 1).padStart(2, "0")} / {post.series}</span>
           <h3>{post.title}</h3>
         </a>
       ))}
@@ -52,8 +49,8 @@ const latestPosts = postsEn.slice(0, 4);
       {latestPosts.map((post) => (
         <article class="post-row">
           <div>
-            <div class="post-meta"><span style={`--accent:${topicAccent[post.topic]}`}>{post.topic}</span><time>{post.date} · {post.readTime}</time></div>
             <h3><a href={link(`en/posts/${post.slug}`)}>{post.title}</a></h3>
+            <div class="post-meta"><time>{post.date} · {post.readTime}</time></div>
             <p>{post.summary}</p>
           </div>
         </article>

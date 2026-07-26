@@ -1,7 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import Newsletter from "../components/Newsletter.astro";
-import { posts, topicAccent } from "../data/posts";
+import { posts } from "../data/posts";
 
 const base = import.meta.env.BASE_URL;
 const link = (path = "") => `${base}${base.endsWith("/") ? "" : "/"}${path}`;
@@ -18,7 +18,6 @@ const latestPosts = posts.slice(0, 4);
   <section class="hero">
     <img class="avatar" src={link("avatar.png")} alt="tinylion1024 的像素风狮子头像" width="460" height="460" />
     <div class="hero-copy">
-      <div class="hero-kicker">PRODUCT × AI × GROWTH</div>
       <h1>构建产品，验证判断。</h1>
       <p>你好，我是 @tinylion1024。我研究产品判断、AI 构建与增长验证，也把这些想法做成真正可用的东西。</p>
       <div class="hero-foot">
@@ -30,13 +29,12 @@ const latestPosts = posts.slice(0, 4);
 
   <section class="start-section" aria-labelledby="start-here">
     <div class="section-heading">
-      <div><span class="eyebrow">START HERE</span><h2 id="start-here">从这里开始</h2></div>
+      <h2 id="start-here">从这里开始</h2>
       <p>三篇文章，理解我如何看产品、AI 构建与增长。</p>
     </div>
     <div class="start-grid">
-      {startHere.map((post, index) => (
+      {startHere.map((post) => (
         <a href={link(`posts/${post.slug}`)}>
-          <span>{String(index + 1).padStart(2, "0")} / {post.series}</span>
           <h3>{post.title}</h3>
         </a>
       ))}
@@ -49,8 +47,8 @@ const latestPosts = posts.slice(0, 4);
       {latestPosts.map((post) => (
         <article class="post-row">
           <div>
-            <div class="post-meta"><span style={`--accent:${topicAccent[post.topic]}`}>{post.topic}</span><time>{post.date} · {post.readTime}</time></div>
             <h3><a href={link(`posts/${post.slug}`)}>{post.title}</a></h3>
+            <div class="post-meta"><time>{post.date} · {post.readTime}</time></div>
             <p>{post.summary}</p>
           </div>
         </article>

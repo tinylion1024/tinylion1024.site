@@ -1,27 +1,23 @@
 ---
 import Base from "../../../layouts/Base.astro";
 import { postsEn } from "../../../data/posts.en";
-import { topicAccent } from "../../../data/posts";
 const base = import.meta.env.BASE_URL;
 const link = (path = "") => `${base}${base.endsWith("/") ? "" : "/"}${path.replace(/^\//, "")}`;
 ---
 
 <Base title="Posts — tinylion1024" description="All writing from tinylion1024." current="/en/posts" lang="en" languageUrl="/posts" alternates={[{ lang: "zh-CN", href: "/posts" }, { lang: "en", href: "/en/posts" }]}>
   <section class="archive-head">
-    <div class="eyebrow">THE ARCHIVE</div>
     <h1>All posts</h1>
     <p>Notes arranged in the order they happened.</p>
   </section>
   <section class="archive-list">
-    {postsEn.map((post, i) => (
+    {postsEn.map((post) => (
       <article class="post-row">
-        <div class="post-number">{String(i + 1).padStart(2, "0")}</div>
         <div>
-          <div class="post-meta"><span style={`--accent:${topicAccent[post.topic]}`}>{post.topic}</span><time>{post.date} · {post.readTime}</time></div>
           <h2><a href={link(`en/posts/${post.slug}`)}>{post.title}</a></h2>
+          <div class="post-meta"><time>{post.date} · {post.readTime}</time></div>
           <p>{post.summary}</p>
         </div>
-        <a class="arrow" href={link(`en/posts/${post.slug}`)} aria-label={`Read: ${post.title}`}>↗</a>
       </article>
     ))}
   </section>
