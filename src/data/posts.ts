@@ -166,6 +166,36 @@ export const posts: Post[] = [
     ],
     highlights: ["把并行工作变成可观察、可暂停、可恢复的系统", "窗格不是 Agent 的边界，而是任务边界", "布局只负责呈现职责，不能替你定义任务边界", "验证应该拥有一个独立窗格", "更少的混乱"],
   },
+  {
+    slug: "choosing-a-terminal-warp-ghostty-iterm2",
+    title: "如何选择适合你的终端：试过 Warp、Ghostty、iTerm2 后，我最终留下了 Warp + Ghostty",
+    summary: "终端不是一场“谁最快”的竞赛。AI 协作、图片上下文、远程兼容、渲染速度与工作习惯，决定了你真正应该留下什么。",
+    date: "2026.07.26",
+    readTime: "7 min",
+    topic: "技术",
+    featured: true,
+    sources: [
+      { label: "Warp 官方文档：终端与 Agent 模式、第三方 CLI Agent 支持", href: "https://docs.warp.dev/" },
+      { label: "Warp 官方文档：Agent Context 可附加图片、URL、文件与代码", href: "https://docs.warp.dev/agent-platform/local-agents/overview" },
+      { label: "Ghostty 官方文档：设计目标与性能取舍", href: "https://ghostty.org/docs/about" },
+      { label: "Ghostty 官方功能：原生 UI、GPU 渲染、Kitty graphics protocol", href: "https://ghostty.org/docs/features" },
+      { label: "iTerm2 官方文档：功能总览与 Inline Images 协议", href: "https://iterm2.com/documentation.html" },
+    ],
+    body: [
+      "选终端时，最容易掉进一个误区：把它当成跑分产品。启动快几毫秒、滚动多几帧，当然很舒服；但当终端已经变成 AI Coding 的主要工作面，真正决定体验的往往是另外几件事：能不能把上下文顺手交给 Agent，能不能稳定处理远程环境，能不能在长时间输出里保持清晰，以及它是否让我愿意一天打开十几个小时。",
+      "我先说结论：我最终保留了 Warp 和 Ghostty，而不是强行只选一个。Warp 是我的 AI 协作终端，Ghostty 是我的高频、纯粹的执行终端。iTerm2 依然是一款成熟、能力极全的 macOS 终端，但它不再最贴合我当前的工作重心。这个选择不是排名，而是一种分工。",
+      "Warp 的吸引力不只是“终端里有 AI”。它把 Terminal Mode 与 Agent Mode 放在同一个工作面，能在会话里附加图片、URL、文件、代码块和选区作为上下文，也可以承载 Claude Code、Codex 这类第三方 CLI Agent 的丰富输入、代码审阅与通知。对产品、前端、排障这类经常需要拿截图、设计稿、报错和命令输出一起讨论的工作，少一次复制、上传和切换，往往比少几毫秒启动时间更值钱。",
+      "尤其是图片。过去我看到一个页面问题，常见路径是：截图，存文件，打开聊天工具，再解释“红框这里不对”。Warp 允许把图片作为 Agent 上下文附加后，这条路径被压缩成在当前工作面把视觉证据和终端状态放在一起。它不保证 Agent 一次修对，但它减少了最昂贵的损耗：上下文在不同工具之间丢失。对需要图文并茂、频繁看 UI 的人，这一点很容易成为决定性差异。",
+      "当然，Warp 的代价也很明确：它是一个更厚的工作环境，而不仅是一个模拟器。Agent、代码审阅、会话与上下文能力会带来更多界面和更多决策。涉及敏感仓库或不需要 AI 的纯命令任务时，我会关掉相关 AI 功能，或者直接切到 Ghostty。工具越了解上下文，越需要你清楚哪些上下文不该交出去。",
+      "Ghostty 的价值恰好相反：它让我重新喜欢上“打开终端就执行”。官方把它的目标概括为 fast、feature-rich、native；在 macOS 上使用原生 UI 和 Metal 的 GPU 渲染，同时提供 tabs、splits、Quick Terminal 和现代终端协议支持。它没有要求我进入一个新的工作流。输入命令、跑测试、看日志、进 SSH、用 tmux 或 Zellij——这些动作都尽可能轻、快、没有中间层。",
+      "我不会把“Ghostty 最快”当作绝对结论，因为终端速度包含启动、滚动、I/O、控制序列吞吐和帧率等不同维度，官方也谨慎地只说它目标是跻身最快一档。但对日常使用者而言，重要的是主观延迟足够低：大量日志快速滚过、频繁切 tab、启动 Claude Code 或 Codex、反复进入远程会话时，界面不会抢走注意力。这就是我把它留作默认执行器的原因。",
+      "iTerm2 不应该被写成输家。它有极成熟的 macOS 生态、tmux 集成、会话恢复、触发器、脚本能力、AI Chat 和 Inline Images 协议；如果你的工作流深度依赖 profile、hotkey、复杂触发器，或已经沉淀了多年配置，iTerm2 仍然是很稳妥的主力。它的优势不是新鲜感，而是把几乎所有终端场景都打磨成了可靠的工具箱。",
+      "但我不再把“功能最多”当作唯一指标。iTerm2 的可配置性很强，Warp 的 AI 层很完整，Ghostty 的体感很轻。把三者塞进同一个总分，会掩盖真正的问题：你一天里最常做的任务是什么？如果你反复把图片、文件和项目上下文交给 AI，Warp 值得放在前面；如果你需要极低摩擦地跑命令、看输出、连远程主机，Ghostty 值得成为默认；如果你管理大量复杂 profile 和自动化，iTerm2 的成熟度更重要。",
+      "我的实际配置很简单：Warp 用于与 Agent 协作、视觉排障、需要携带截图或多种上下文的编码任务；Ghostty 用于 Git、测试、日志、SSH 和 tmux / Zellij；iTerm2 保留作为兼容与旧工作流的备选。这样做的好处不是拥有更多 App，而是让每个工具只服务它最擅长的时刻。",
+      "最后给一个选择原则：先记录一周，而不是先看排行榜。统计你打开终端后最常发生的五件事，以及最频繁的三个摩擦点。选择能消除其中两个摩擦点的终端，先用两周；保留一个备用，不要急着迁移全部配置。终端是肌肉记忆的容器。真正适合你的，不是功能表最长的那个，而是让你更少离开工作状态的那个。",
+    ],
+    highlights: ["真正决定体验的往往是另外几件事", "Warp 是我的 AI 协作终端，Ghostty 是我的高频、纯粹的执行终端", "上下文在不同工具之间丢失", "主观延迟足够低", "让你更少离开工作状态的那个"],
+  },
 ];
 
 export const topicAccent: Record<Post["topic"], string> = {
