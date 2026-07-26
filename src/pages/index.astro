@@ -1,6 +1,5 @@
 ---
 import Base from "../layouts/Base.astro";
-import Newsletter from "../components/Newsletter.astro";
 import RssLink from "../components/RssLink.astro";
 import { posts } from "../data/posts";
 
@@ -55,5 +54,4 @@ const latestPosts = posts.slice(0, 4);
     </div>
     <a class="text-link" href={link("posts")}>查看全部文章 <span>→</span></a>
   </section>
-  <Newsletter />
 </Base>
