@@ -137,6 +137,35 @@ export const posts: Post[] = [
     ],
     highlights: ["任务要有边界，改动要有回声", "影响半径", "把上下文当作产品接口", "验证放在生成之后", "人必须持续拥有停止权"],
   },
+  {
+    slug: "terminal-multiplexer-ai-coding-workflow",
+    title: "别再靠一个终端硬扛：用 tmux / Zellij 把 Claude Code 与 Codex 变成可控的并行工作台",
+    summary: "终端分屏的价值不在于同时开更多 Agent，而在于给任务、写入范围、验证与人工决策划出清晰边界。",
+    date: "2026.07.26",
+    readTime: "8 min",
+    topic: "技术",
+    featured: true,
+    sources: [
+      { label: "tmux 官方 Getting Started：会话、窗口、窗格与断开重连", href: "https://github.com/tmux/tmux/wiki/Getting-Started" },
+      { label: "Zellij 官方文档：Layouts", href: "https://zellij.dev/documentation/layouts.html" },
+      { label: "Anthropic 官方文档：Claude Code CLI reference", href: "https://docs.anthropic.com/en/docs/claude-code/cli-usage" },
+      { label: "OpenAI Codex 术语表：CLI、子 Agent 与 Git worktree", href: "https://learn.chatgpt.com/docs/glossary" },
+    ],
+    body: [
+      "很多人第一次同时使用 Claude Code 和 Codex 时，都会得到一个错误的结论：只要多开几个终端、让每个窗格跑一个 Agent，开发速度就会线性增长。实际情况恰好相反。没有边界的并行会让你同时收获重复修改、互相覆盖的文件、失控的上下文，以及最后由人来承担的合并成本。终端复用器真正解决的不是“多开窗口”，而是把并行工作变成可观察、可暂停、可恢复的系统。",
+      "我现在把 tmux 或 Zellij 当成 AI Coding 的控制台，而不是炫技工具。tmux 的核心概念很朴素：一个 session 里有多个 window，每个 window 有多个 pane；session 可以断开后再连接，里面的进程仍继续运行。Zellij 则把 pane、tab 和 layout 做得更直观。它们的共同价值是：终端空间可以承载稳定的职责，而不是一串临时命令。",
+      "先建立一个最小的四格布局：左上只读分析，右上实现任务 A，左下运行测试与日志，右下保留给实现任务 B 或人工操作。关键不在几格，而在每一格只有一个职责。分析窗格默认不写文件；验证窗格不接受“我已经做完了”的口头结论；两个实现窗格只在文件范围不重叠时才同时运行。这样，屏幕布局直接映射为协作协议。",
+      "最重要的一条规则是：窗格不是 Agent 的边界，而是任务边界。不要因为 Claude Code 和 Codex 都能改代码，就把同一个功能交给两个窗格竞争。应先按写入范围拆分：一个负责测试或文档，一个负责独立模块，另一个只做只读排查。若两个任务会改同一条数据流、同一个组件或同一组配置，它们就不是并行任务，而是需要排队的依赖任务。",
+      "tmux 更适合把终端当作长期、稳定、可从 SSH 断线恢复的工作环境。给 session 起项目名，例如 `tmux new -s product-ai`；离开时 `Ctrl-b d` 断开，回来后 `tmux attach -t product-ai`。不要把 layout 当成一次性脚本，而要把它当成项目的运行状态：一个 window 用于编码，一个 window 用于测试，一个 window 用于 Git 和部署观察。tmux 的优势是可预测、可脚本化，也特别适合远程机器。",
+      "Zellij 更适合希望“打开就看懂”的人。它的 layout 可以把 tabs、panes 以及启动命令写成可复用配置，因此你可以准备一个 `ai-workflow` 布局：分析、实现、验证和 Git 各有位置。它降低了记忆快捷键的门槛，但不改变基本原则：布局只负责呈现职责，不能替你定义任务边界。喜欢视觉反馈和更低配置负担时选 Zellij；已经深度依赖 SSH、tmux 配置与脚本时继续用 tmux。",
+      "每次启动 Claude Code 或 Codex 前，我会把提示词压缩成一份交接单：目标是什么；允许改哪些目录；禁止触碰什么；完成后必须运行哪条检查；遇到什么情况立刻停止。比如：“只修改 `src/auth/**` 与对应测试；不要改 API 契约；完成后运行 `pnpm test auth`；如果需要迁移数据库，停止并报告。”这比“把登录做得更好”长不了多少，却能显著降低并行时的误伤。",
+      "两个工具可以共存，但不要让它们共享一个未声明的写入区。Claude Code 的交互式会话可以继续或按会话 ID 恢复；Codex CLI 是终端中的编码代理，也支持围绕任务、上下文和工具工作。把其中一个用于探索、审阅或测试，另一个用于限定范围的实现，通常比让两者同时重写同一个功能可靠得多。需要真正隔离的并行分支时，再使用 Git worktree：隔离的是文件系统，不只是对话。",
+      "验证应该拥有一个独立窗格，因为它的身份与实现相反。实现窗格的目标是产生候选改动；验证窗格的目标是寻找反证。这里持续运行类型检查、目标测试、开发服务器和日志；每次 Agent 说“完成”时，只把 diff 和命令输出当作证据。把验证从聊天记录中拿出来放到可见的终端里，会减少一种很常见的错觉：模型写出了完整解释，于是我们误以为功能已经完成。",
+      "一个安全的并行节奏是：先在分析窗格确定文件边界，再把两个不重叠的小任务交给实现窗格；验证窗格尽早开始跑最小检查；人工只在冲突、失败或要改变产品判断时介入。任务结束后立即查看 `git diff`，用原子提交保存一个清晰意图，再开始下一轮。终端复用器让流程持续存在，Git 让选择可以撤回，两者共同把 AI 的速度变成可控的速度。",
+      "最后，不要把这套工作流误解为“更多 Agent”。真正的目标是更少的混乱：每个任务有 owner，每次写入有范围，每个结论有验证，每个并行分支有退出条件。你会发现自己打开的窗格可能并不多，但每个窗格都在回答一个明确问题。这才是 tmux / Zellij 与 Claude Code / Codex 组合最值得保留的生产力。",
+    ],
+    highlights: ["把并行工作变成可观察、可暂停、可恢复的系统", "窗格不是 Agent 的边界，而是任务边界", "布局只负责呈现职责，不能替你定义任务边界", "验证应该拥有一个独立窗格", "更少的混乱"],
+  },
 ];
 
 export const topicAccent: Record<Post["topic"], string> = {
