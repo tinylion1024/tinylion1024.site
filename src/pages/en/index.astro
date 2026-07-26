@@ -1,6 +1,7 @@
 ---
 import Base from "../../layouts/Base.astro";
 import Newsletter from "../../components/Newsletter.astro";
+import RssLink from "../../components/RssLink.astro";
 import { postsEn } from "../../data/posts.en";
 
 const base = import.meta.env.BASE_URL;
@@ -20,7 +21,7 @@ const latestPosts = postsEn.slice(0, 4);
   <section class="hero">
     <img class="avatar" src={link("avatar.png")} alt="Pixel lion avatar for tinylion1024" width="460" height="460" />
     <div class="hero-copy">
-      <h1>Hi, I’m @tinylion1024.</h1>
+      <h1>Hi, I’m @tinylion1024.<RssLink href={link("en/rss.xml")} label="Subscribe via RSS" /></h1>
       <div class="hero-summary">
         <p>I build products with AI and test them through real growth.</p>
         <div class="social-links"><a href="https://github.com/tinylion1024" target="_blank" rel="noreferrer">GitHub</a><a href="mailto:shaowei_job@163.com">Email</a><a href={link("en/about")}>About</a></div>

@@ -1,0 +1,11 @@
+---
+const { href, label } = Astro.props;
+---
+
+<a class="rss-link" href={href} aria-label={label} title="RSS">
+  <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
+    <path d="M3 3a14 14 0 0 1 14 14" />
+    <path d="M3 9a8 8 0 0 1 8 8" />
+    <circle cx="3" cy="17" r="1.7" />
+  </svg>
+</a>

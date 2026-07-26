@@ -1,6 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import Newsletter from "../components/Newsletter.astro";
+import RssLink from "../components/RssLink.astro";
 import { posts } from "../data/posts";
 
 const base = import.meta.env.BASE_URL;
@@ -18,7 +19,7 @@ const latestPosts = posts.slice(0, 4);
   <section class="hero">
     <img class="avatar" src={link("avatar.png")} alt="tinylion1024 的像素风狮子头像" width="460" height="460" />
     <div class="hero-copy">
-      <h1>你好，我是 @tinylion1024。</h1>
+      <h1>你好，我是 @tinylion1024。<RssLink href={link("rss.xml")} label="订阅 RSS" /></h1>
       <div class="hero-summary">
         <p>用 AI 构建产品，用真实增长验证判断。</p>
         <div class="social-links"><a href="https://github.com/tinylion1024" target="_blank" rel="noreferrer">GitHub</a><a href="mailto:shaowei_job@163.com">Email</a><a href={link("about")}>About</a></div>
