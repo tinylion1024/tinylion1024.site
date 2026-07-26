@@ -1,0 +1,35 @@
+---
+const { aboutHref, lang = "zh-CN" } = Astro.props;
+const isEnglish = lang === "en";
+---
+
+<div class="social-links">
+  <a
+    href="https://github.com/tinylion1024"
+    target="_blank"
+    rel="noreferrer"
+    aria-label={isEnglish ? "GitHub profile" : "GitHub 主页"}
+    title="GitHub"
+  >
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+      <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3.3-.4 6.8-1.6 6.8-7.4A5.8 5.8 0 0 0 19.3 3 5.4 5.4 0 0 0 19.1.5S17.9.1 15 2a13.4 13.4 0 0 0-6 0C6.1.1 4.9.5 4.9.5A5.4 5.4 0 0 0 4.7 3a5.8 5.8 0 0 0-1.5 4.1c0 5.8 3.5 7 6.8 7.4A4.8 4.8 0 0 0 9 18v4" />
+      <path d="M9 19c-3 .9-3-1.5-4.2-2" />
+    </svg>
+  </a>
+  <a
+    href="mailto:shaowei_job@163.com"
+    aria-label={isEnglish ? "Email tinylion1024" : "给 tinylion1024 发邮件"}
+    title="Email"
+  >
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="m3 7 9 6 9-6" />
+    </svg>
+  </a>
+  <a href={aboutHref} aria-label={isEnglish ? "About tinylion1024" : "关于 tinylion1024"} title={isEnglish ? "About" : "关于"}>
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="8" r="4" />
+      <path d="M4.5 21a7.5 7.5 0 0 1 15 0" />
+    </svg>
+  </a>
+</div>

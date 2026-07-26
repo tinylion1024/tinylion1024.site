@@ -1,6 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import RssLink from "../components/RssLink.astro";
+import SocialLinks from "../components/SocialLinks.astro";
 import { posts } from "../data/posts";
 
 const base = import.meta.env.BASE_URL;
@@ -21,7 +22,7 @@ const latestPosts = posts.slice(0, 4);
       <h1>你好，我是 @tinylion1024。<RssLink href={link("rss.xml")} label="订阅 RSS" /></h1>
       <div class="hero-summary">
         <p>用 AI 构建产品，用真实增长验证判断。</p>
-        <div class="social-links"><a href="https://github.com/tinylion1024" target="_blank" rel="noreferrer">GitHub</a><a href="mailto:shaowei_job@163.com">Email</a><a href={link("about")}>About</a></div>
+        <SocialLinks aboutHref={link("about")} />
       </div>
     </div>
   </section>
