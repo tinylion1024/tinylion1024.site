@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Newsletter from "../components/Newsletter.astro";
 import { posts, topicAccent } from "../data/posts";
 
 const base = import.meta.env.BASE_URL;
@@ -57,4 +58,5 @@ const latestPosts = posts.slice(0, 4);
     </div>
     <a class="text-link" href={link("posts")}>查看全部文章 <span>→</span></a>
   </section>
+  <Newsletter />
 </Base>

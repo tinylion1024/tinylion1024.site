@@ -1,5 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
+import Newsletter from "../../components/Newsletter.astro";
 import { postsEn } from "../../data/posts.en";
 import { topicAccent } from "../../data/posts";
 
@@ -60,4 +61,5 @@ const latestPosts = postsEn.slice(0, 4);
     </div>
     <a class="text-link" href={link("en/posts")}>All posts <span>→</span></a>
   </section>
+  <Newsletter lang="en" />
 </Base>
