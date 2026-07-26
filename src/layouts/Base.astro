@@ -12,6 +12,7 @@ const {
   alternates = [],
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const favicon = `${import.meta.env.BASE_URL}avatar.png`;
 ---
 
 <!doctype html>
@@ -20,6 +21,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href={favicon} />
+    <link rel="apple-touch-icon" href={favicon} />
     <link rel="canonical" href={canonical} />
     {alternates.map((alternate: { lang: string; href: string }) => (
       <link rel="alternate" hreflang={alternate.lang} href={new URL(alternate.href, Astro.site)} />
