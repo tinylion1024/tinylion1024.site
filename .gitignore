@@ -3,6 +3,9 @@ dist/
 .astro/
 .omx/
 .codebase-memory/
+/.codex/
+/AGENTS.md
+/agent.md
 .DS_Store
 .env
 .env.*
