@@ -6,7 +6,7 @@ const base = import.meta.env.BASE_URL;
 const link = (path = "") => `${base}${base.endsWith("/") ? "" : "/"}${path}`;
 ---
 
-<Base>
+<Base languageUrl="/en/" alternates={[{ lang: "zh-CN", href: "/" }, { lang: "en", href: "/en/" }]}>
   <section class="hero">
     <img class="avatar" src={link("avatar.png")} alt="tinylion1024 的像素风狮子头像" width="460" height="460" />
     <div>

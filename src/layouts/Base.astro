@@ -3,23 +3,35 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 
-const { title = "tinylion1024", description = "一个关于产品、增长、技术与思考的个人博客。", current = "/" } = Astro.props;
+const {
+  title = "tinylion1024",
+  description = "一个关于产品、增长、技术与思考的个人博客。",
+  current = "/",
+  lang = "zh-CN",
+  languageUrl = "/en/",
+  alternates = [],
+} = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
-<html lang="zh-CN">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {alternates.map((alternate: { lang: string; href: string }) => (
+      <link rel="alternate" hreflang={alternate.lang} href={new URL(alternate.href, Astro.site)} />
+    ))}
     <title>{title}</title>
   </head>
   <body>
     <div class="paper-grain"></div>
     <div class="shell">
-      <Header current={current} />
+      <Header current={current} lang={lang} languageUrl={languageUrl} />
       <main><slot /></main>
-      <Footer />
+      <Footer lang={lang} />
     </div>
   </body>
 </html>

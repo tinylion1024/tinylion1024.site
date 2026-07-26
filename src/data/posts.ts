@@ -4,7 +4,8 @@ export type Post = {
   summary: string;
   date: string;
   readTime: string;
-  topic: "产品" | "增长" | "技术" | "思考";
+  topic: "产品" | "增长" | "技术" | "思考" | "Product" | "Growth" | "Technology" | "Thinking";
+  translationOf?: string;
   featured?: boolean;
   visuals?: Array<{
     src: string;
@@ -103,4 +104,8 @@ export const topicAccent: Record<Post["topic"], string> = {
   增长: "#087f5b",
   技术: "#5b5bd6",
   思考: "#a64515",
+  Product: "#0b63ce",
+  Growth: "#087f5b",
+  Technology: "#5b5bd6",
+  Thinking: "#a64515",
 };

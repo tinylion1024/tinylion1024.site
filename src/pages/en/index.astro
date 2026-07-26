@@ -1,0 +1,42 @@
+---
+import Base from "../../layouts/Base.astro";
+import { postsEn } from "../../data/posts.en";
+import { topicAccent } from "../../data/posts";
+
+const base = import.meta.env.BASE_URL;
+const link = (path = "") => `${base}${base.endsWith("/") ? "" : "/"}${path.replace(/^\//, "")}`;
+---
+
+<Base
+  title="tinylion1024 — Product, Growth, and AI Coding"
+  description="Notes on product judgment, growth experiments, AI coding, and work in progress."
+  current="/en/"
+  lang="en"
+  languageUrl="/"
+  alternates={[{ lang: "zh-CN", href: "/" }, { lang: "en", href: "/en/" }]}
+>
+  <section class="hero">
+    <img class="avatar" src={link("avatar.png")} alt="Pixel lion avatar for tinylion1024" width="460" height="460" />
+    <div>
+      <h1>Hi, I’m @tinylion1024.</h1>
+      <p>I write about product judgment, growth experiments, AI coding, and the personal systems still taking shape behind the work.</p>
+      <div class="social-links"><a href="https://github.com/tinylion1024" target="_blank" rel="noreferrer">GitHub</a><a href="mailto:hello@example.com">Email</a><a href={link("en/about")}>About</a></div>
+    </div>
+  </section>
+
+  <section class="latest-section">
+    <div class="section-label">Latest writing</div>
+    <div class="post-list">
+      {postsEn.map((post) => (
+        <article class="post-row">
+          <div>
+            <div class="post-meta"><span style={`--accent:${topicAccent[post.topic]}`}>{post.topic}</span><time>{post.date} · {post.readTime}</time></div>
+            <h3><a href={link(`en/posts/${post.slug}`)}>{post.title}</a></h3>
+            <p>{post.summary}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+    <a class="text-link" href={link("en/posts")}>All posts <span>→</span></a>
+  </section>
+</Base>

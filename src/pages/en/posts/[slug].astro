@@ -1,23 +1,22 @@
 ---
-import Base from "../../layouts/Base.astro";
-import { posts, topicAccent } from "../../data/posts";
-import { postsEn } from "../../data/posts.en";
+import Base from "../../../layouts/Base.astro";
+import { postsEn } from "../../../data/posts.en";
+import { topicAccent } from "../../../data/posts";
 
 export function getStaticPaths() {
-  return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+  return postsEn.map((post) => ({ params: { slug: post.slug }, props: { post } }));
 }
 
 const { post } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const link = (path = "") => `${base}${base.endsWith("/") ? "" : "/"}${path.replace(/^\//, "")}`;
 const visualsAfter = (paragraph: number) => post.visuals?.filter((visual) => visual.afterParagraph === paragraph) ?? [];
-const englishPost = postsEn.find((candidate) => candidate.translationOf === post.slug);
-const englishPath = englishPost ? `/en/posts/${englishPost.slug}` : "/en/posts";
+const chinesePath = post.translationOf ? `/posts/${post.translationOf}` : "/posts";
 ---
 
-<Base title={`${post.title} — tinylion1024`} description={post.summary} current="/posts" languageUrl={englishPath} alternates={[{ lang: "zh-CN", href: `/posts/${post.slug}` }, { lang: "en", href: englishPath }]}>
+<Base title={`${post.title} — tinylion1024`} description={post.summary} current="/en/posts" lang="en" languageUrl={chinesePath} alternates={[{ lang: "zh-CN", href: chinesePath }, { lang: "en", href: `/en/posts/${post.slug}` }]}>
   <article class="essay">
-    <a class="back-link" href={link("posts")}>← 回到文章列表</a>
+    <a class="back-link" href={link("en/posts")}>← Back to posts</a>
     <div class="post-meta"><span style={`--accent:${topicAccent[post.topic]}`}>{post.topic}</span><time>{post.date} · {post.readTime}</time></div>
     <h1>{post.title}</h1>
     <p class="dek">{post.summary}</p>
@@ -35,6 +34,6 @@ const englishPath = englishPost ? `/en/posts/${englishPost.slug}` : "/en/posts";
         </>
       ))}
     </div>
-    <p class="essay-end">— 完 —</p>
+    <p class="essay-end">— End —</p>
   </article>
 </Base>

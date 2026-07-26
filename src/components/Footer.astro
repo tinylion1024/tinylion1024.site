@@ -1,4 +1,8 @@
+---
+const { lang = "zh-CN" } = Astro.props;
+---
+
 <footer>
   <p>© {new Date().getFullYear()} TINYLION1024 / ALL SYSTEMS NOMINAL</p>
-  <p>产品 · 增长 · 技术 · 思考</p>
+  <p>{lang === "en" ? "Product · Growth · Technology · Thinking" : "产品 · 增长 · 技术 · 思考"}</p>
 </footer>
