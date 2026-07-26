@@ -13,10 +13,46 @@ export type Post = {
     afterParagraph: number;
     caption: string;
   }>;
+  sources?: Array<{
+    label: string;
+    href: string;
+  }>;
   body: string[];
 };
 
 export const posts: Post[] = [
+  {
+    slug: "ai-llm-landscape-july-2026",
+    title: "截至 2026.07.26，AI LLM 的格局：不是三强争霸，而是五条战线",
+    summary: "最前沿模型的差距已经缩小到个位数，但竞争没有结束，反而从“谁最聪明”分裂成能力、成本、速度、Agent 交付和开放权重五条战线。",
+    date: "2026.07.26",
+    readTime: "10 min",
+    topic: "技术",
+    featured: true,
+    sources: [
+      { label: "Artificial Analysis：模型、成本与速度总榜", href: "https://artificialanalysis.ai/models" },
+      { label: "Artificial Analysis：六家实验室进入 50+ Intelligence Index", href: "https://artificialanalysis.ai/articles/four-frontier-launches-in-eight-days-six-labs-now-field-a-model-above-50-on-the-artificial-analysis-intelligence-index" },
+      { label: "Artificial Analysis：Claude Opus 5 的 Agentic Knowledge Work 评测", href: "https://artificialanalysis.ai/articles/claude-opus-5-leader-agentic-knowledge-work" },
+      { label: "Artificial Analysis：Kimi K3 的 Agentic Knowledge Work 评测", href: "https://artificialanalysis.ai/articles/kimi-k3-agentic-knowledge-benchmark" },
+      { label: "Artificial Analysis：Inkling 开放权重模型评测", href: "https://artificialanalysis.ai/articles/thinking-machines-has-released-inkling-the-new-leading-u-s-open-weights-model" },
+    ],
+    body: [
+      "如果你还在问“现在最强的 LLM 是谁”，这个问题在 2026 年 7 月已经不够好了。Artificial Analysis 的最新快照给出的不是一个新的唯一冠军，而是一个更难、也更真实的事实：顶尖模型的能力差正在收敛，但它们在成本、速度、长程 Agent 和开放性上的差异正在迅速扩大。",
+      "先给结论：前沿模型竞争已经从“单榜第一”进入“五条战线并行”。第一条是综合智能；第二条是 Agent 能否交付真实工作；第三条是每个任务的成本；第四条是时间与吞吐；第五条是权重、上下文和部署控制权。只看一个总分，已经很容易买错模型。",
+      "第一，前沿不再是两家公司的专利。7 月中旬的 Intelligence Index 显示，超过 50 分的实验室已经从 6 月初的两家扩展到六家：Anthropic、OpenAI、Moonshot AI、SpaceXAI、Z AI 和 Meta。榜首与第三名的综合分差只有几个点，竞争的含义从“谁远远领先”变成“谁在某个具体任务上更值”。",
+      "这也是为什么排名本身越来越像一个过时的消费品。榜单告诉我们谁在综合题上更强，却不自动告诉我们谁更适合写生产代码、谁更适合做财务研究、谁能以低成本批量处理客服，或谁能在企业内网里运行。模型选择正在从选品牌，变成选工作负载。",
+      "第二，Agent 能力正在从“会调用工具”变成“能否完成长程交付”。Artificial Analysis 的 AA-Briefcase 用研究报告、表格和演示文稿等交付物衡量长程知识工作。其 7 月 24 日评测中，Claude Opus 5 在最高 effort 下取得 1720 Elo，超过此前的 Claude Fable 5；但完成一个任务的平均时间超过 36 分钟。更强，仍然不等于更快。",
+      "这个细节很重要。今天的模型已经可以多轮检索、调工具、生成文件、自己修正，但它们的“思考”越来越像一段需要预算的执行。对高价值、低频、允许等待的任务，长程 Agent 是杠杆；对在线交互、批量内容或高并发流程，成本与延迟会先于绝对能力成为约束。",
+      "第三，中国模型不再只是低价替代。Kimi K3 在该指数中达到 57 分，进入综合榜前列；在 AA-Briefcase 上以 1543 Elo 处于第二梯队顶端。但同一份评测也显示，它平均每个任务约需 56 分钟、成本约 10.57 美元。这不是“国产模型已经全面碾压”的故事，而是更成熟的信号：一线能力已经多极化，产品化仍要算速度、成本和可运营性。",
+      "第四，最剧烈的变化发生在性价比，而不是冠军易主。Artificial Analysis 在 7 月 17 日的快照中指出，近前沿模型在八天内出现 2—3 倍的单位任务成本下降：不同模型以更低价格进入 51—59 分区间。于是团队的默认策略不应再是“给所有请求配最强模型”，而应是模型路由：难题升级，简单任务下沉，缓存和批处理优先。",
+      "第五，开放权重仍是一条独立赛道。Thinking Machines 的 Inkling 以 41 分成为其测评中的领先美国开放权重模型，具备文本、图像和音频输入，并提供更长的开放权重上下文窗口。但它距离最前沿综合能力仍有明显差距。开源的价值不只是追榜：它意味着私有部署、数据边界、可控延迟、微调和供应链选择权。",
+      "所以，闭源与开放权重不是同一把尺子上的输赢。若你的核心约束是极致推理和复杂交付，前沿 API 仍然更省组织成本；若你的核心约束是数据合规、离线部署、长期单价或场景微调，开放权重的总拥有成本可能更好。把两者混为一个“谁强”的问题，会掩盖真正的架构选择。",
+      "我认为 2026 年下半年的真正分水岭，会是“模型”退到后台，“系统”走到台前。用户不再为一个 API 名称付费，而是为可靠交付付费：任务如何拆分、何时调用强模型、何时交给轻模型、如何缓存上下文、如何用测试和人工审核兜底。模型分数仍重要，但它只是系统输入，不是系统本身。",
+      "对个人开发者，我的建议很简单：保留一个最强模型用于高难推理与关键代码；选择一个低延迟、低成本模型处理日常草稿、分类和批量任务；用一个开放权重或兼容供应商做风险预案。对团队，则应把这些选择写成路由规则和验收标准，而不是写在某个高手的偏好里。",
+      "最后也要给榜单降温。Artificial Analysis 的 Intelligence Index 是由 GDPval-AA、Terminal-Bench、SciCode、长上下文推理等九项评测组成的综合指标；AA-Briefcase 则特别衡量长程知识工作。它们都很有价值，但不是你的用户、你的数据或你的产品。把它们当作雷达，而不是方向盘：先用榜单缩小候选，再用自己的任务、成本和失败案例完成最终选择。",
+      "截至 2026 年 7 月 26 日，我看到的不是“AI 已经分出胜负”，而是竞争终于进入了对用户更有利的阶段：顶级能力不再稀缺，价格快速下移，更多地区和更多部署方式可以参与。下一轮护城河，不会是谁先拥有模型，而是谁先把模型组织成可重复、可验证、可盈利的工作流。",
+    ],
+  },
   {
     slug: "goodbye-superpowers-selective-ai-coding-workflows",
     title: "再见 Superpowers：我删掉的不是 Skill，而是“全局常驻的 AI 开发仪式”",
