@@ -1,0 +1,21 @@
+---
+import Base from "../layouts/Base.astro";
+const base = import.meta.env.BASE_URL;
+const link = (path = "") => `${base}${base.endsWith("/") ? "" : "/"}${path.replace(/^\//, "")}`;
+---
+
+<Base title="工具 — tinylion1024" description="tinylion1024 当前使用并愿意长期保留的工具与选择原则。" current="/uses" languageUrl="/en/uses" alternates={[{ lang: "zh-CN", href: "/uses" }, { lang: "en", href: "/en/uses" }]}>
+  <section class="essay about">
+    <div class="eyebrow">USES / MINIMAL TOOLSET</div>
+    <h1>工具应该减少摩擦，而不是制造身份。</h1>
+    <p class="dek">这是我当前真正使用的组合，也会随着工作方式变化。</p>
+    <div class="essay-rule"></div>
+    <div class="uses-list">
+      <section><h2>终端</h2><p><strong>Warp</strong> 用于 AI 协作、视觉上下文和复杂任务；<strong>Ghostty</strong> 用于 Git、测试、日志与 SSH。</p></section>
+      <section><h2>工作区</h2><p><strong>tmux / Zellij</strong> 负责会话恢复和任务边界。窗格代表职责，而不是盲目增加 Agent。</p></section>
+      <section><h2>AI Coding</h2><p><strong>Codex / Claude Code</strong> 按任务选择。默认最小修改，高风险任务才增加计划、测试与审查。</p></section>
+      <section><h2>发布</h2><p><strong>Astro、TypeScript、pnpm、GitHub Pages</strong>。静态、可审查、低维护，足够支撑长期写作。</p></section>
+    </div>
+    <a class="text-link" href={link("posts/choosing-a-terminal-warp-ghostty-iterm2")}>阅读我的终端选择 →</a>
+  </section>
+</Base>

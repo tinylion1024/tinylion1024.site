@@ -4,9 +4,12 @@ export type Post = {
   summary: string;
   date: string;
   readTime: string;
-  topic: "产品" | "增长" | "技术" | "思考" | "Product" | "Growth" | "Technology" | "Thinking";
+  topic: "AI 产品" | "AI 构建" | "增长验证" | "个人思考" | "AI Product" | "AI Building" | "Growth Validation" | "Personal Thinking";
   translationOf?: string;
   featured?: boolean;
+  startHere?: boolean;
+  series?: string;
+  seriesSlug?: string;
   visuals?: Array<{
     src: string;
     alt: string;
@@ -28,8 +31,11 @@ export const posts: Post[] = [
     summary: "最前沿模型的差距已经缩小到个位数，但竞争没有结束，反而从“谁最聪明”分裂成能力、成本、速度、Agent 交付和开放权重五条战线。",
     date: "2026.07.26",
     readTime: "10 min",
-    topic: "技术",
+    topic: "AI 产品",
     featured: true,
+    startHere: true,
+    series: "AI 产品观察",
+    seriesSlug: "ai-product-notes",
     sources: [
       { label: "Artificial Analysis：模型、成本与速度总榜", href: "https://artificialanalysis.ai/models" },
       { label: "Artificial Analysis：六家实验室进入 50+ Intelligence Index", href: "https://artificialanalysis.ai/articles/four-frontier-launches-in-eight-days-six-labs-now-field-a-model-above-50-on-the-artificial-analysis-intelligence-index" },
@@ -61,8 +67,11 @@ export const posts: Post[] = [
     summary: "Superpowers 没有过时，但把重流程设为每个任务的默认值，正在变成新的瓶颈。2026 年更需要的是 Selective Powers：按风险、按复杂度调用能力。",
     date: "2026.07.25",
     readTime: "11 min",
-    topic: "技术",
+    topic: "AI 构建",
     featured: true,
+    startHere: true,
+    series: "极简 AI 工作流",
+    seriesSlug: "minimal-ai-workflows",
     visuals: [
       {
         src: "/articles/selective-powers-workflow.png",
@@ -97,8 +106,11 @@ export const posts: Post[] = [
     summary: "真正的杠杆不在提示词长度或并行数量，而在于把任务、上下文、验证和提交设计成一个持续收敛的交付系统。",
     date: "2026.07.25",
     readTime: "12 min",
-    topic: "技术",
+    topic: "AI 构建",
     featured: true,
+    startHere: true,
+    series: "极简 AI 工作流",
+    seriesSlug: "minimal-ai-workflows",
     visuals: [
       {
         src: "/articles/ai-coding-blast-radius.png",
@@ -143,8 +155,10 @@ export const posts: Post[] = [
     summary: "终端分屏的价值不在于同时开更多 Agent，而在于给任务、写入范围、验证与人工决策划出清晰边界。",
     date: "2026.07.26",
     readTime: "8 min",
-    topic: "技术",
+    topic: "AI 构建",
     featured: true,
+    series: "极简 AI 工作流",
+    seriesSlug: "minimal-ai-workflows",
     sources: [
       { label: "tmux 官方 Getting Started：会话、窗口、窗格与断开重连", href: "https://github.com/tmux/tmux/wiki/Getting-Started" },
       { label: "Zellij 官方文档：Layouts", href: "https://zellij.dev/documentation/layouts.html" },
@@ -172,8 +186,10 @@ export const posts: Post[] = [
     summary: "终端不是一场“谁最快”的竞赛。AI 协作、图片上下文、远程兼容、渲染速度与工作习惯，决定了你真正应该留下什么。",
     date: "2026.07.26",
     readTime: "7 min",
-    topic: "技术",
+    topic: "AI 构建",
     featured: true,
+    series: "极简工具箱",
+    seriesSlug: "minimal-toolset",
     sources: [
       { label: "Warp 官方文档：终端与 Agent 模式、第三方 CLI Agent 支持", href: "https://docs.warp.dev/" },
       { label: "Warp 官方文档：Agent Context 可附加图片、URL、文件与代码", href: "https://docs.warp.dev/agent-platform/local-agents/overview" },
@@ -199,12 +215,12 @@ export const posts: Post[] = [
 ];
 
 export const topicAccent: Record<Post["topic"], string> = {
-  产品: "#0b63ce",
-  增长: "#087f5b",
-  技术: "#5b5bd6",
-  思考: "#a64515",
-  Product: "#0b63ce",
-  Growth: "#087f5b",
-  Technology: "#5b5bd6",
-  Thinking: "#a64515",
+  "AI 产品": "#0b63ce",
+  "AI 构建": "#5b5bd6",
+  增长验证: "#087f5b",
+  个人思考: "#a64515",
+  "AI Product": "#0b63ce",
+  "AI Building": "#5b5bd6",
+  "Growth Validation": "#087f5b",
+  "Personal Thinking": "#a64515",
 };

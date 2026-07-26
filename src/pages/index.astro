@@ -4,6 +4,8 @@ import { posts, topicAccent } from "../data/posts";
 
 const base = import.meta.env.BASE_URL;
 const link = (path = "") => `${base}${base.endsWith("/") ? "" : "/"}${path}`;
+const startHere = posts.filter((post) => post.startHere).slice(0, 3);
+const latestPosts = posts.slice(0, 4);
 ---
 
 <Base
@@ -25,10 +27,25 @@ const link = (path = "") => `${base}${base.endsWith("/") ? "" : "/"}${path}`;
     </div>
   </section>
 
+  <section class="start-section" aria-labelledby="start-here">
+    <div class="section-heading">
+      <div><span class="eyebrow">START HERE</span><h2 id="start-here">从这里开始</h2></div>
+      <p>三篇文章，理解我如何看 AI、产品与极简构建。</p>
+    </div>
+    <div class="start-grid">
+      {startHere.map((post, index) => (
+        <a href={link(`posts/${post.slug}`)}>
+          <span>{String(index + 1).padStart(2, "0")} / {post.series}</span>
+          <h3>{post.title}</h3>
+        </a>
+      ))}
+    </div>
+  </section>
+
   <section id="latest" class="latest-section">
     <div class="section-label">最新文章</div>
     <div class="post-list">
-      {posts.map((post) => (
+      {latestPosts.map((post) => (
         <article class="post-row">
           <div>
             <div class="post-meta"><span style={`--accent:${topicAccent[post.topic]}`}>{post.topic}</span><time>{post.date} · {post.readTime}</time></div>

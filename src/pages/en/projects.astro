@@ -1,0 +1,28 @@
+---
+import Base from "../../layouts/Base.astro";
+const base = import.meta.env.BASE_URL;
+const link = (path = "") => `${base}${base.endsWith("/") ? "" : "/"}${path.replace(/^\//, "")}`;
+---
+
+<Base title="Projects — tinylion1024" description="Products, systems, and public experiments being built by tinylion1024." current="/en/projects" lang="en" languageUrl="/projects" alternates={[{ lang: "zh-CN", href: "/projects" }, { lang: "en", href: "/en/projects" }]}>
+  <section class="essay about">
+    <div class="eyebrow">PROJECTS / BUILD IN PUBLIC</div>
+    <h1>Things I am building.</h1>
+    <p class="dek">A small list by design—only work worth iterating in public.</p>
+    <div class="essay-rule"></div>
+    <div class="project-list">
+      <article>
+        <div class="project-meta"><span>ACTIVE</span><time>2026 — NOW</time></div>
+        <h2>tinylion1024.site</h2>
+        <p>A bilingual personal home for AI products, minimalist building, and growth validation. It is both a publishing surface and an ongoing personal-brand experiment.</p>
+        <a href="https://github.com/tinylion1024/tinylion1024.site" target="_blank" rel="noreferrer">View source ↗</a>
+      </article>
+      <article>
+        <div class="project-meta"><span>EXPERIMENT</span><time>ONGOING</time></div>
+        <h2>Minimal AI Workflows</h2>
+        <p>An evolving personal AI coding system built around Codex, Claude Code, terminal multiplexers, verification, and atomic commits.</p>
+        <a href={link("en/posts")}>Read the writing →</a>
+      </article>
+    </div>
+  </section>
+</Base>

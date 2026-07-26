@@ -1,0 +1,28 @@
+---
+import Base from "../layouts/Base.astro";
+const base = import.meta.env.BASE_URL;
+const link = (path = "") => `${base}${base.endsWith("/") ? "" : "/"}${path.replace(/^\//, "")}`;
+---
+
+<Base title="项目 — tinylion1024" description="tinylion1024 正在构建的产品、系统与公开实验。" current="/projects" languageUrl="/en/projects" alternates={[{ lang: "zh-CN", href: "/projects" }, { lang: "en", href: "/en/projects" }]}>
+  <section class="essay about">
+    <div class="eyebrow">PROJECTS / BUILD IN PUBLIC</div>
+    <h1>我正在构建的东西。</h1>
+    <p class="dek">数量不多，只保留值得长期迭代的项目。</p>
+    <div class="essay-rule"></div>
+    <div class="project-list">
+      <article>
+        <div class="project-meta"><span>ACTIVE</span><time>2026 — NOW</time></div>
+        <h2>tinylion1024.site</h2>
+        <p>一个关于 AI 产品、极简构建和增长验证的双语个人主页。它既是写作载体，也是一次持续进行的个人 IP 实验。</p>
+        <a href="https://github.com/tinylion1024/tinylion1024.site" target="_blank" rel="noreferrer">查看源码 ↗</a>
+      </article>
+      <article>
+        <div class="project-meta"><span>EXPERIMENT</span><time>ONGOING</time></div>
+        <h2>Minimal AI Workflows</h2>
+        <p>围绕 Codex、Claude Code、终端复用器和原子提交，寻找更少流程、更可靠交付的个人 AI Coding 系统。</p>
+        <a href={link("posts")}>阅读相关文章 →</a>
+      </article>
+    </div>
+  </section>
+</Base>

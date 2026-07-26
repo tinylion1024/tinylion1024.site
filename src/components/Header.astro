@@ -5,8 +5,8 @@ const link = (path = "") => `${base}${base.endsWith("/") ? "" : "/"}${path.repla
 const isEnglish = lang === "en";
 const prefix = isEnglish ? "en/" : "";
 const links = [
-  { href: link(prefix), label: isEnglish ? "Home" : "首页" },
   { href: link(`${prefix}posts`), label: isEnglish ? "Posts" : "文章" },
+  { href: link(`${prefix}now`), label: isEnglish ? "Now" : "现在" },
   { href: link(`${prefix}about`), label: isEnglish ? "About" : "关于" },
 ];
 ---

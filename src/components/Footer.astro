@@ -1,8 +1,15 @@
 ---
 const { lang = "zh-CN" } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const link = (path = "") => `${base}${base.endsWith("/") ? "" : "/"}${path.replace(/^\//, "")}`;
+const isEnglish = lang === "en";
+const prefix = isEnglish ? "en/" : "";
 ---
 
 <footer>
   <p>© {new Date().getFullYear()} TINYLION1024 / ALL SYSTEMS NOMINAL</p>
-  <p>{lang === "en" ? "Product · Growth · Technology · Thinking" : "产品 · 增长 · 技术 · 思考"}</p>
+  <div class="footer-links">
+    <a href={link(`${prefix}projects`)}>{isEnglish ? "Projects" : "项目"}</a>
+    <a href={link(`${prefix}uses`)}>{isEnglish ? "Uses" : "工具"}</a>
+  </div>
 </footer>
