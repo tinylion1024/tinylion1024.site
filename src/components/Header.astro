@@ -6,7 +6,6 @@ const isEnglish = lang === "en";
 const prefix = isEnglish ? "en/" : "";
 const links = [
   { href: link(`${prefix}posts`), label: isEnglish ? "Posts" : "文章" },
-  { href: link(`${prefix}now`), label: isEnglish ? "Now" : "现在" },
   { href: link(`${prefix}about`), label: isEnglish ? "About" : "关于" },
 ];
 ---
@@ -15,11 +14,11 @@ const links = [
   <a class="wordmark" href={link(prefix)} aria-label="tinylion1024 home">
     <span>@tinylion1024</span>
   </a>
-  <nav aria-label="主导航">
+  <nav aria-label={isEnglish ? "Main navigation" : "主导航"}>
     {links.map((link) => <a href={link.href} class:list={[{ active: current === link.href }]}>{link.label}</a>)}
   </nav>
   <a class="language-switch" href={languageUrl} lang={isEnglish ? "zh-CN" : "en"}>{isEnglish ? "中文" : "EN"}</a>
-  <button class="theme-button" type="button" aria-label="切换夜间模式">◐</button>
+  <button class="theme-button" type="button" aria-label={isEnglish ? "Toggle dark mode" : "切换夜间模式"}>◐</button>
 </header>
 
 <script>
