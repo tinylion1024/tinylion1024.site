@@ -1,5 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
+import ArticleFooter from "../../components/ArticleFooter.astro";
 import { posts, topicAccent } from "../../data/posts";
 import { postsEn } from "../../data/posts.en";
 
@@ -14,12 +15,16 @@ const visualsAfter = (paragraph: number) => post.visuals?.filter((visual) => vis
 const englishPost = postsEn.find((candidate) => candidate.translationOf === post.slug);
 const englishPath = englishPost ? `/en/posts/${englishPost.slug}` : "/en/posts";
 const alternates = [{ lang: "zh-CN", href: `/posts/${post.slug}` }, ...(englishPost ? [{ lang: "en", href: englishPath }] : [])];
+const postIndex = posts.findIndex((candidate) => candidate.slug === post.slug);
+const previousPost = postIndex > 0 ? posts[postIndex - 1] : undefined;
+const nextPost = postIndex < posts.length - 1 ? posts[postIndex + 1] : undefined;
+const seriesPosts = post.seriesSlug ? posts.filter((candidate) => candidate.seriesSlug === post.seriesSlug && candidate.slug !== post.slug) : [];
 ---
 
 <Base title={`${post.title} — tinylion1024`} description={post.summary} current="/posts" languageUrl={englishPath} alternates={alternates}>
   <article class="essay">
     <a class="back-link" href={link("posts")}>← 回到文章列表</a>
-    <div class="post-meta"><span style={`--accent:${topicAccent[post.topic]}`}>{post.topic}</span><time>{post.date} · {post.readTime}</time></div>
+    <div class="post-meta"><span style={`--accent:${topicAccent[post.topic]}`}>{post.topic}</span><time>{post.date} · {post.readTime}</time>{post.series && <em>{post.series}</em>}</div>
     <h1>{post.title}</h1>
     <p class="dek">{post.summary}</p>
     <div class="essay-rule"></div>
@@ -49,5 +54,6 @@ const alternates = [{ lang: "zh-CN", href: `/posts/${post.slug}` }, ...(englishP
       </aside>
     )}
     <p class="essay-end">— 完 —</p>
+    <ArticleFooter currentPost={post} previousPost={previousPost} nextPost={nextPost} seriesPosts={seriesPosts} />
   </article>
 </Base>

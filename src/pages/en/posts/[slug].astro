@@ -1,5 +1,6 @@
 ---
 import Base from "../../../layouts/Base.astro";
+import ArticleFooter from "../../../components/ArticleFooter.astro";
 import { postsEn } from "../../../data/posts.en";
 import { topicAccent } from "../../../data/posts";
 
@@ -12,12 +13,16 @@ const base = import.meta.env.BASE_URL;
 const link = (path = "") => `${base}${base.endsWith("/") ? "" : "/"}${path.replace(/^\//, "")}`;
 const visualsAfter = (paragraph: number) => post.visuals?.filter((visual) => visual.afterParagraph === paragraph) ?? [];
 const chinesePath = post.translationOf ? `/posts/${post.translationOf}` : "/posts";
+const postIndex = postsEn.findIndex((candidate) => candidate.slug === post.slug);
+const previousPost = postIndex > 0 ? postsEn[postIndex - 1] : undefined;
+const nextPost = postIndex < postsEn.length - 1 ? postsEn[postIndex + 1] : undefined;
+const seriesPosts = post.seriesSlug ? postsEn.filter((candidate) => candidate.seriesSlug === post.seriesSlug && candidate.slug !== post.slug) : [];
 ---
 
 <Base title={`${post.title} — tinylion1024`} description={post.summary} current="/en/posts" lang="en" languageUrl={chinesePath} alternates={[{ lang: "zh-CN", href: chinesePath }, { lang: "en", href: `/en/posts/${post.slug}` }]}>
   <article class="essay">
     <a class="back-link" href={link("en/posts")}>← Back to posts</a>
-    <div class="post-meta"><span style={`--accent:${topicAccent[post.topic]}`}>{post.topic}</span><time>{post.date} · {post.readTime}</time></div>
+    <div class="post-meta"><span style={`--accent:${topicAccent[post.topic]}`}>{post.topic}</span><time>{post.date} · {post.readTime}</time>{post.series && <em>{post.series}</em>}</div>
     <h1>{post.title}</h1>
     <p class="dek">{post.summary}</p>
     <div class="essay-rule"></div>
@@ -47,5 +52,6 @@ const chinesePath = post.translationOf ? `/posts/${post.translationOf}` : "/post
       </aside>
     )}
     <p class="essay-end">— End —</p>
+    <ArticleFooter lang="en" currentPost={post} previousPost={previousPost} nextPost={nextPost} seriesPosts={seriesPosts} />
   </article>
 </Base>

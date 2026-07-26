@@ -1,0 +1,68 @@
+---
+import type { Post } from "../data/posts";
+
+type Props = {
+  lang?: "zh-CN" | "en";
+  currentPost: Post;
+  previousPost?: Post;
+  nextPost?: Post;
+  seriesPosts?: Post[];
+};
+
+const {
+  lang = "zh-CN",
+  currentPost,
+  previousPost,
+  nextPost,
+  seriesPosts = [],
+} = Astro.props;
+const base = import.meta.env.BASE_URL;
+const link = (path = "") => `${base}${base.endsWith("/") ? "" : "/"}${path.replace(/^\//, "")}`;
+const isEnglish = lang === "en";
+const prefix = isEnglish ? "en/" : "";
+---
+
+{seriesPosts.length > 0 && (
+  <aside class="series-reading">
+    <div class="eyebrow">{isEnglish ? "MORE IN THIS SERIES" : "继续阅读这个系列"}</div>
+    <h2>{currentPost.series}</h2>
+    <ol>
+      {seriesPosts.map((post) => (
+        <li><a href={link(`${prefix}posts/${post.slug}`)}>{post.title}</a></li>
+      ))}
+    </ol>
+  </aside>
+)}
+
+{(previousPost || nextPost) && (
+  <nav class="post-navigation" aria-label={isEnglish ? "Post navigation" : "文章导航"}>
+    {previousPost ? (
+      <a href={link(`${prefix}posts/${previousPost.slug}`)}>
+        <span>{isEnglish ? "NEWER" : "较新一篇"}</span>
+        <strong>{previousPost.title}</strong>
+      </a>
+    ) : <span></span>}
+    {nextPost && (
+      <a href={link(`${prefix}posts/${nextPost.slug}`)}>
+        <span>{isEnglish ? "OLDER" : "较早一篇"}</span>
+        <strong>{nextPost.title}</strong>
+      </a>
+    )}
+  </nav>
+)}
+
+<aside class="author-card">
+  <img src={link("avatar.png")} alt={isEnglish ? "Pixel lion avatar for tinylion1024" : "tinylion1024 的像素风狮子头像"} width="460" height="460" />
+  <div>
+    <span class="eyebrow">{isEnglish ? "ABOUT THE AUTHOR" : "关于作者"}</span>
+    <h2>@tinylion1024</h2>
+    <p>{isEnglish
+      ? "A minimalist AI product builder. I build products with AI and test judgment through real growth."
+      : "AI 时代的极简产品实践者。用 AI 构建产品，用真实增长验证判断。"}</p>
+    <div>
+      <a href={link(`${prefix}about`)}>{isEnglish ? "About" : "关于"}</a>
+      <a href="https://github.com/tinylion1024" target="_blank" rel="noreferrer">GitHub ↗</a>
+      <a href="mailto:shaowei_job@163.com">Email ↗</a>
+    </div>
+  </div>
+</aside>
