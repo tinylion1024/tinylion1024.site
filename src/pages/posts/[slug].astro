@@ -19,9 +19,10 @@ const postIndex = posts.findIndex((candidate) => candidate.slug === post.slug);
 const previousPost = postIndex > 0 ? posts[postIndex - 1] : undefined;
 const nextPost = postIndex < posts.length - 1 ? posts[postIndex + 1] : undefined;
 const seriesPosts = post.seriesSlug ? posts.filter((candidate) => candidate.seriesSlug === post.seriesSlug && candidate.slug !== post.slug) : [];
+const publishedTime = post.date.replaceAll(".", "-");
 ---
 
-<Base title={`${post.title} — tinylion1024`} description={post.summary} current="/posts" languageUrl={englishPath} alternates={alternates}>
+<Base title={`${post.title} — tinylion1024`} headline={post.title} description={post.summary} current="/posts" languageUrl={englishPath} alternates={alternates} type="article" publishedTime={publishedTime} articleSection={post.topic}>
   <article class="essay">
     <a class="back-link" href={link("posts")}>← 回到文章列表</a>
     <div class="post-meta"><span style={`--accent:${topicAccent[post.topic]}`}>{post.topic}</span><time>{post.date} · {post.readTime}</time>{post.series && <em>{post.series}</em>}</div>

@@ -17,9 +17,10 @@ const postIndex = postsEn.findIndex((candidate) => candidate.slug === post.slug)
 const previousPost = postIndex > 0 ? postsEn[postIndex - 1] : undefined;
 const nextPost = postIndex < postsEn.length - 1 ? postsEn[postIndex + 1] : undefined;
 const seriesPosts = post.seriesSlug ? postsEn.filter((candidate) => candidate.seriesSlug === post.seriesSlug && candidate.slug !== post.slug) : [];
+const publishedTime = post.date.replaceAll(".", "-");
 ---
 
-<Base title={`${post.title} — tinylion1024`} description={post.summary} current="/en/posts" lang="en" languageUrl={chinesePath} alternates={[{ lang: "zh-CN", href: chinesePath }, { lang: "en", href: `/en/posts/${post.slug}` }]}>
+<Base title={`${post.title} — tinylion1024`} headline={post.title} description={post.summary} current="/en/posts" lang="en" languageUrl={chinesePath} alternates={[{ lang: "zh-CN", href: chinesePath }, { lang: "en", href: `/en/posts/${post.slug}` }]} type="article" publishedTime={publishedTime} articleSection={post.topic}>
   <article class="essay">
     <a class="back-link" href={link("en/posts")}>← Back to posts</a>
     <div class="post-meta"><span style={`--accent:${topicAccent[post.topic]}`}>{post.topic}</span><time>{post.date} · {post.readTime}</time>{post.series && <em>{post.series}</em>}</div>

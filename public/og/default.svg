@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f8fafc"/>
+  <rect x="64" y="64" width="1072" height="502" rx="24" fill="#ffffff" stroke="#d0d5dd" stroke-width="2"/>
+  <image xlink:href="avatar-og.png" x="108" y="164" width="236" height="236"/>
+  <text x="408" y="190" fill="#0969da" font-family="SFMono-Regular, Menlo, monospace" font-size="28" font-weight="600" letter-spacing="5">AI × PRODUCT × LESS</text>
+  <text x="408" y="286" fill="#101828" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="66" font-weight="700">少一点复杂，</text>
+  <text x="408" y="370" fill="#101828" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="66" font-weight="700">多一点价值。</text>
+  <text x="408" y="444" fill="#475467" font-family="SFMono-Regular, Menlo, monospace" font-size="28">@tinylion1024</text>
+  <path d="M108 500H1092" stroke="#e4e7ec" stroke-width="2"/>
+  <text x="108" y="536" fill="#667085" font-family="SFMono-Regular, Menlo, monospace" font-size="18">tinylion1024.site</text>
+</svg>
