@@ -1,0 +1,54 @@
+<svg width="1672" height="941" viewBox="0 0 1672 941" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1672" height="941" rx="36" fill="#0B0C0F"/>
+  <rect x="1.5" y="1.5" width="1669" height="938" rx="34.5" stroke="#2B2D33" stroke-width="3"/>
+
+  <text x="92" y="111" fill="#F3F0E8" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="25" font-weight="700" letter-spacing="4">DESKTOP AGENT GROWTH</text>
+  <text x="92" y="181" fill="#F3F0E8" font-family="Inter, Arial, sans-serif" font-size="51" font-weight="750">The repeatable-work flywheel</text>
+  <text x="92" y="229" fill="#96989F" font-family="Inter, Arial, sans-serif" font-size="24">Universal capability wins attention. A trusted recurring job earns retention.</text>
+
+  <circle cx="836" cy="526" r="235" stroke="#30343A" stroke-width="3" stroke-dasharray="10 12"/>
+  <path d="M836 291C965 291 1071 395 1071 526" stroke="#75F1D2" stroke-width="7" stroke-linecap="round"/>
+  <path d="M1071 526C1071 656 965 761 836 761" stroke="#FFD172" stroke-width="7" stroke-linecap="round"/>
+  <path d="M836 761C706 761 601 656 601 526" stroke="#B9ACFF" stroke-width="7" stroke-linecap="round"/>
+  <path d="M601 526C601 395 706 291 836 291" stroke="#65B9FF" stroke-width="7" stroke-linecap="round"/>
+
+  <path d="M1054 447L1093 510L1021 500Z" fill="#75F1D2"/>
+  <path d="M915 744L852 783L862 711Z" fill="#FFD172"/>
+  <path d="M618 605L579 542L651 552Z" fill="#B9ACFF"/>
+  <path d="M757 308L820 269L810 341Z" fill="#65B9FF"/>
+
+  <rect x="651" y="421" width="370" height="210" rx="34" fill="#14161B" stroke="#3A3D44" stroke-width="2"/>
+  <text x="836" y="482" text-anchor="middle" fill="#F3F0E8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="750">TRUSTED</text>
+  <text x="836" y="528" text-anchor="middle" fill="#F3F0E8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="750">RECURRING JOB</text>
+  <text x="836" y="579" text-anchor="middle" fill="#96989F" font-family="Inter, Arial, sans-serif" font-size="21">weekly report · research · files</text>
+
+  <g>
+    <rect x="122" y="367" width="326" height="150" rx="24" fill="#14161B" stroke="#65B9FF" stroke-width="2"/>
+    <text x="154" y="414" fill="#65B9FF" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="700">01 · FIRST WIN</text>
+    <text x="154" y="459" fill="#F3F0E8" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="650">Useful artifact</text>
+    <text x="154" y="493" fill="#8A8D95" font-family="Inter, Arial, sans-serif" font-size="19">before setup fatigue wins</text>
+  </g>
+
+  <g>
+    <rect x="1224" y="367" width="326" height="150" rx="24" fill="#14161B" stroke="#75F1D2" stroke-width="2"/>
+    <text x="1256" y="414" fill="#75F1D2" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="700">02 · RECIPE</text>
+    <text x="1256" y="459" fill="#F3F0E8" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="650">Save as a Skill</text>
+    <text x="1256" y="493" fill="#8A8D95" font-family="Inter, Arial, sans-serif" font-size="19">method + scope + checks</text>
+  </g>
+
+  <g>
+    <rect x="1224" y="603" width="326" height="150" rx="24" fill="#14161B" stroke="#FFD172" stroke-width="2"/>
+    <text x="1256" y="650" fill="#FFD172" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="700">03 · HABIT</text>
+    <text x="1256" y="695" fill="#F3F0E8" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="650">Schedule or delegate</text>
+    <text x="1256" y="729" fill="#8A8D95" font-family="Inter, Arial, sans-serif" font-size="19">desktop · IM · mobile</text>
+  </g>
+
+  <g>
+    <rect x="122" y="603" width="326" height="150" rx="24" fill="#14161B" stroke="#B9ACFF" stroke-width="2"/>
+    <text x="154" y="650" fill="#B9ACFF" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="700">04 · DISTRIBUTE</text>
+    <text x="154" y="695" fill="#F3F0E8" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="650">Share outcome</text>
+    <text x="154" y="729" fill="#8A8D95" font-family="Inter, Arial, sans-serif" font-size="19">team learns the workflow</text>
+  </g>
+
+  <text x="836" y="866" text-anchor="middle" fill="#62656C" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" letter-spacing="1.5">THE MOAT IS VERIFIED WORK CONTEXT, NOT THE NUMBER OF SKILLS</text>
+</svg>

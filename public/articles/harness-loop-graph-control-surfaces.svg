@@ -1,0 +1,47 @@
+<svg width="1672" height="941" viewBox="0 0 1672 941" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1672" height="941" rx="36" fill="#0B0C0F"/>
+  <rect x="1.5" y="1.5" width="1669" height="938" rx="34.5" stroke="#2B2D33" stroke-width="3"/>
+
+  <text x="92" y="111" fill="#F3F0E8" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="25" font-weight="700" letter-spacing="4">AGENT SYSTEM DESIGN</text>
+  <text x="92" y="181" fill="#F3F0E8" font-family="Inter, Arial, sans-serif" font-size="51" font-weight="750">Three control surfaces</text>
+  <text x="92" y="229" fill="#96989F" font-family="Inter, Arial, sans-serif" font-size="24">Environment, feedback over time, and coordination topology</text>
+
+  <rect x="92" y="294" width="464" height="388" rx="26" fill="#14161B" stroke="#5DE1C2" stroke-width="2"/>
+  <rect x="116" y="318" width="120" height="38" rx="19" fill="#18362F"/>
+  <text x="140" y="344" fill="#75F1D2" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="700" letter-spacing="2">SPACE</text>
+  <text x="116" y="419" fill="#F3F0E8" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="750">HARNESS</text>
+  <text x="116" y="463" fill="#75F1D2" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="650">The working world</text>
+  <line x1="116" y1="500" x2="512" y2="500" stroke="#30343A" stroke-width="2"/>
+  <text x="116" y="547" fill="#C9CBD0" font-family="Inter, Arial, sans-serif" font-size="23">Context  ·  Tools  ·  Permissions</text>
+  <text x="116" y="589" fill="#C9CBD0" font-family="Inter, Arial, sans-serif" font-size="23">Sandbox  ·  State  ·  Evidence</text>
+  <text x="116" y="642" fill="#777A82" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18">WHAT CAN IT SEE, DO, PROVE?</text>
+
+  <rect x="604" y="294" width="464" height="388" rx="26" fill="#14161B" stroke="#F2BA4B" stroke-width="2"/>
+  <rect x="628" y="318" width="120" height="38" rx="19" fill="#3B2E14"/>
+  <text x="652" y="344" fill="#FFD172" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="700" letter-spacing="2">TIME</text>
+  <text x="628" y="419" fill="#F3F0E8" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="750">LOOP</text>
+  <text x="628" y="463" fill="#FFD172" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="650">Feedback over time</text>
+  <line x1="628" y1="500" x2="1024" y2="500" stroke="#30343A" stroke-width="2"/>
+  <text x="628" y="547" fill="#C9CBD0" font-family="Inter, Arial, sans-serif" font-size="23">Act  →  Observe  →  Verify</text>
+  <text x="628" y="589" fill="#C9CBD0" font-family="Inter, Arial, sans-serif" font-size="23">Recover  ·  Budget  ·  Stop</text>
+  <text x="628" y="642" fill="#777A82" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18">HOW DOES IT CORRECT AND STOP?</text>
+
+  <rect x="1116" y="294" width="464" height="388" rx="26" fill="#14161B" stroke="#9D8CFF" stroke-width="2"/>
+  <rect x="1140" y="318" width="144" height="38" rx="19" fill="#282342"/>
+  <text x="1164" y="344" fill="#B9ACFF" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="700" letter-spacing="2">TOPOLOGY</text>
+  <text x="1140" y="419" fill="#F3F0E8" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="750">GRAPH</text>
+  <text x="1140" y="463" fill="#B9ACFF" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="650">Coordination structure</text>
+  <line x1="1140" y1="500" x2="1536" y2="500" stroke="#30343A" stroke-width="2"/>
+  <text x="1140" y="547" fill="#C9CBD0" font-family="Inter, Arial, sans-serif" font-size="23">Route  ·  Branch  ·  Fan out</text>
+  <text x="1140" y="589" fill="#C9CBD0" font-family="Inter, Arial, sans-serif" font-size="23">Join  ·  Gate  ·  Escalate</text>
+  <text x="1140" y="642" fill="#777A82" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18">WHERE MAY THE WORK MOVE?</text>
+
+  <path d="M324 734H1348" stroke="#34373D" stroke-width="2"/>
+  <circle cx="324" cy="734" r="8" fill="#75F1D2"/>
+  <circle cx="836" cy="734" r="8" fill="#FFD172"/>
+  <circle cx="1348" cy="734" r="8" fill="#B9ACFF"/>
+
+  <text x="836" y="804" text-anchor="middle" fill="#F3F0E8" font-family="Inter, Arial, sans-serif" font-size="27" font-weight="650">Put judgment inside the nodes.</text>
+  <text x="836" y="846" text-anchor="middle" fill="#96989F" font-family="Inter, Arial, sans-serif" font-size="24">Put evidence and authority at the boundaries.</text>
+  <text x="836" y="900" text-anchor="middle" fill="#62656C" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" letter-spacing="1.5">THE DESIGN PROBLEM IS WHERE UNCERTAINTY BELONGS</text>
+</svg>

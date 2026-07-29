@@ -1,0 +1,57 @@
+<svg width="1672" height="941" viewBox="0 0 1672 941" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1672" height="941" rx="36" fill="#0B0C0F"/>
+  <rect x="1.5" y="1.5" width="1669" height="938" rx="34.5" stroke="#2B2D33" stroke-width="3"/>
+
+  <text x="92" y="111" fill="#F3F0E8" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="25" font-weight="700" letter-spacing="4">DESKTOP AGENT UX</text>
+  <text x="92" y="181" fill="#F3F0E8" font-family="Inter, Arial, sans-serif" font-size="51" font-weight="750">The delegation contract</text>
+  <text x="92" y="229" fill="#96989F" font-family="Inter, Arial, sans-serif" font-size="24">A prompt starts the work. These six surfaces make it trustworthy.</text>
+
+  <path d="M188 467H1484" stroke="#34373D" stroke-width="4"/>
+
+  <g>
+    <circle cx="188" cy="467" r="58" fill="#18362F" stroke="#75F1D2" stroke-width="3"/>
+    <text x="188" y="476" text-anchor="middle" fill="#75F1D2" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="24" font-weight="700">01</text>
+    <text x="188" y="570" text-anchor="middle" fill="#F3F0E8" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700">BRIEF</text>
+    <text x="188" y="609" text-anchor="middle" fill="#8A8D95" font-family="Inter, Arial, sans-serif" font-size="20">goal + context</text>
+  </g>
+
+  <g>
+    <circle cx="447" cy="467" r="58" fill="#3B2E14" stroke="#FFD172" stroke-width="3"/>
+    <text x="447" y="476" text-anchor="middle" fill="#FFD172" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="24" font-weight="700">02</text>
+    <text x="447" y="570" text-anchor="middle" fill="#F3F0E8" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700">PLAN</text>
+    <text x="447" y="609" text-anchor="middle" fill="#8A8D95" font-family="Inter, Arial, sans-serif" font-size="20">steps + estimate</text>
+  </g>
+
+  <g>
+    <circle cx="706" cy="467" r="58" fill="#282342" stroke="#B9ACFF" stroke-width="3"/>
+    <text x="706" y="476" text-anchor="middle" fill="#B9ACFF" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="24" font-weight="700">03</text>
+    <text x="706" y="570" text-anchor="middle" fill="#F3F0E8" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700">PERMISSION</text>
+    <text x="706" y="609" text-anchor="middle" fill="#8A8D95" font-family="Inter, Arial, sans-serif" font-size="20">scope + approval</text>
+  </g>
+
+  <g>
+    <circle cx="965" cy="467" r="58" fill="#13304A" stroke="#65B9FF" stroke-width="3"/>
+    <text x="965" y="476" text-anchor="middle" fill="#65B9FF" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="24" font-weight="700">04</text>
+    <text x="965" y="570" text-anchor="middle" fill="#F3F0E8" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700">ACTION</text>
+    <text x="965" y="609" text-anchor="middle" fill="#8A8D95" font-family="Inter, Arial, sans-serif" font-size="20">status + interrupt</text>
+  </g>
+
+  <g>
+    <circle cx="1224" cy="467" r="58" fill="#3A2026" stroke="#FF8E9E" stroke-width="3"/>
+    <text x="1224" y="476" text-anchor="middle" fill="#FF8E9E" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="24" font-weight="700">05</text>
+    <text x="1224" y="570" text-anchor="middle" fill="#F3F0E8" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700">ARTIFACT</text>
+    <text x="1224" y="609" text-anchor="middle" fill="#8A8D95" font-family="Inter, Arial, sans-serif" font-size="20">editable result</text>
+  </g>
+
+  <g>
+    <circle cx="1484" cy="467" r="58" fill="#24351E" stroke="#9ED66F" stroke-width="3"/>
+    <text x="1484" y="476" text-anchor="middle" fill="#9ED66F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="24" font-weight="700">06</text>
+    <text x="1484" y="570" text-anchor="middle" fill="#F3F0E8" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700">ACCEPT</text>
+    <text x="1484" y="609" text-anchor="middle" fill="#8A8D95" font-family="Inter, Arial, sans-serif" font-size="20">verify + recover</text>
+  </g>
+
+  <rect x="260" y="719" width="1152" height="108" rx="24" fill="#14161B" stroke="#30343A" stroke-width="2"/>
+  <text x="836" y="765" text-anchor="middle" fill="#F3F0E8" font-family="Inter, Arial, sans-serif" font-size="27" font-weight="650">The unit of value is not a fluent answer.</text>
+  <text x="836" y="806" text-anchor="middle" fill="#96989F" font-family="Inter, Arial, sans-serif" font-size="23">It is an accepted outcome with a visible path and a safe way back.</text>
+  <text x="836" y="892" text-anchor="middle" fill="#62656C" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" letter-spacing="1.5">FROM CONVERSATION QUALITY TO DELIVERY QUALITY</text>
+</svg>
