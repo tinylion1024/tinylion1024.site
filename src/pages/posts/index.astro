@@ -8,14 +8,14 @@ const link = (path = "") => `${base}${base.endsWith("/") ? "" : "/"}${path}`;
 <Base title="文章 — tinylion1024" current="/posts" languageUrl="/en/posts" alternates={[{ lang: "zh-CN", href: "/posts" }, { lang: "en", href: "/en/posts" }]}>
   <section class="archive-head">
     <h1>所有文章</h1>
-    <p>零散想法，按发生的顺序排列。</p>
+    <p>围绕五个长期主题展开，按话题发生的时间整理。</p>
   </section>
   <section class="archive-list">
     {posts.map((post) => (
       <article class="post-row">
         <div>
           <h2><a href={link(`posts/${post.slug}`)}>{post.title}</a></h2>
-          <div class="post-meta"><time>{post.date} · {post.readTime}</time></div>
+          <div class="post-meta"><time>{post.date} · {post.readTime}</time>{post.series && <span> · {post.series}</span>}</div>
           <p>{post.summary}</p>
         </div>
       </article>

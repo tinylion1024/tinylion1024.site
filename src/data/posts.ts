@@ -1,3 +1,9 @@
+import { batchAPosts } from "./editorial/batch-a";
+import { batchBPosts } from "./editorial/batch-b";
+import { batchCPosts } from "./editorial/batch-c";
+import { addSeriesVisual } from "./editorial/series";
+import { byNewestDate } from "./publication";
+
 export type Post = {
   slug: string;
   title: string;
@@ -24,7 +30,7 @@ export type Post = {
   highlights?: string[];
 };
 
-export const posts: Post[] = [
+const legacyPosts: Post[] = [
   {
     slug: "subscribe-chatgpt-plus-with-apple-gift-card",
     title: "如何用 Apple Gift Card 订阅 ChatGPT Plus：一份不绕区的 iPhone 指南",
@@ -265,7 +271,7 @@ export const posts: Post[] = [
   },
   {
     slug: "ai-llm-landscape-july-2026",
-    title: "截至 2026.07.26，AI LLM 的格局：不是三强争霸，而是五条战线",
+    title: "2026 年中的 AI LLM 格局：不是三强争霸，而是五条战线",
     summary: "最前沿模型的差距已经缩小到个位数，但竞争没有结束，反而从“谁最聪明”分裂成能力、成本、速度、Agent 交付和开放权重五条战线。",
     date: "2026.07.26",
     readTime: "10 min",
@@ -295,7 +301,7 @@ export const posts: Post[] = [
       "我认为 2026 年下半年的真正分水岭，会是“模型”退到后台，“系统”走到台前。用户不再为一个 API 名称付费，而是为可靠交付付费：任务如何拆分、何时调用强模型、何时交给轻模型、如何缓存上下文、如何用测试和人工审核兜底。模型分数仍重要，但它只是系统输入，不是系统本身。",
       "对个人开发者，我的建议很简单：保留一个最强模型用于高难推理与关键代码；选择一个低延迟、低成本模型处理日常草稿、分类和批量任务；用一个开放权重或兼容供应商做风险预案。对团队，则应把这些选择写成路由规则和验收标准，而不是写在某个高手的偏好里。",
       "最后也要给榜单降温。Artificial Analysis 的 Intelligence Index 是由 GDPval-AA、Terminal-Bench、SciCode、长上下文推理等九项评测组成的综合指标；AA-Briefcase 则特别衡量长程知识工作。它们都很有价值，但不是你的用户、你的数据或你的产品。把它们当作雷达，而不是方向盘：先用榜单缩小候选，再用自己的任务、成本和失败案例完成最终选择。",
-      "截至 2026 年 7 月 26 日，我看到的不是“AI 已经分出胜负”，而是竞争终于进入了对用户更有利的阶段：顶级能力不再稀缺，价格快速下移，更多地区和更多部署方式可以参与。下一轮护城河，不会是谁先拥有模型，而是谁先把模型组织成可重复、可验证、可盈利的工作流。",
+      "站在 2026 年中，我看到的不是“AI 已经分出胜负”，而是竞争终于进入了对用户更有利的阶段：顶级能力不再稀缺，价格快速下移，更多地区和更多部署方式可以参与。下一轮护城河，不会是谁先拥有模型，而是谁先把模型组织成可重复、可验证、可盈利的工作流。",
     ],
     highlights: ["五条战线并行", "模型选择正在从选品牌，变成选工作负载", "更强，仍然不等于更快", "模型路由", "把它们当作雷达，而不是方向盘"],
   },
@@ -451,3 +457,13 @@ export const posts: Post[] = [
     highlights: ["真正决定体验的往往是另外几件事", "Warp 是我的 AI 协作终端，Ghostty 是我的高频、纯粹的执行终端", "上下文在不同工具之间丢失", "主观延迟足够低", "让你更少离开工作状态的那个"],
   },
 ];
+
+export const editorialPosts: Post[] = [
+  ...batchAPosts,
+  ...batchBPosts,
+  ...batchCPosts,
+].map((post) => addSeriesVisual(post, "zh-CN"));
+
+export const allPosts: Post[] = [...editorialPosts, ...legacyPosts].sort(byNewestDate);
+
+export const posts: Post[] = allPosts;

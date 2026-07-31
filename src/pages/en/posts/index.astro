@@ -8,14 +8,14 @@ const link = (path = "") => `${base}${base.endsWith("/") ? "" : "/"}${path.repla
 <Base title="Posts — tinylion1024" description="All writing from tinylion1024." current="/en/posts" lang="en" languageUrl="/posts" alternates={[{ lang: "zh-CN", href: "/posts" }, { lang: "en", href: "/en/posts" }]}>
   <section class="archive-head">
     <h1>All posts</h1>
-    <p>Notes arranged in the order they happened.</p>
+    <p>Five long-running editorial threads, organized around when each topic emerged.</p>
   </section>
   <section class="archive-list">
     {postsEn.map((post) => (
       <article class="post-row">
         <div>
           <h2><a href={link(`en/posts/${post.slug}`)}>{post.title}</a></h2>
-          <div class="post-meta"><time>{post.date} · {post.readTime}</time></div>
+          <div class="post-meta"><time>{post.date} · {post.readTime}</time>{post.series && <span> · {post.series}</span>}</div>
           <p>{post.summary}</p>
         </div>
       </article>

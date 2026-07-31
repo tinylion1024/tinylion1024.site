@@ -21,7 +21,7 @@ const latestPosts = posts.slice(0, 4);
     <div class="hero-copy">
       <h1>你好，我是 @tinylion1024。<RssLink href={link("rss.xml")} label="订阅 RSS" /></h1>
       <div class="hero-summary">
-        <p>用 AI 构建产品，用真实增长验证判断。</p>
+        <p>研究 AI 产品、Agent 工程与增长系统，记录技术变化背后的产品与商业判断。</p>
         <SocialLinks aboutHref={link("about")} />
       </div>
     </div>
@@ -40,6 +40,19 @@ const latestPosts = posts.slice(0, 4);
     </div>
   </section>
 
+  <section class="editorial-focus" aria-labelledby="editorial-focus">
+    <div class="section-heading">
+      <h2 id="editorial-focus">长期关注</h2>
+    </div>
+    <div class="focus-tags" aria-label="长期关注的五个主题">
+      <span>模型与推理</span>
+      <span>Agent 产品与体验</span>
+      <span>AI 软件工程</span>
+      <span>AI 商业与增长</span>
+      <span>AI 与社会</span>
+    </div>
+  </section>
+
   <section id="latest" class="latest-section">
     <div class="section-label">最新文章</div>
     <div class="post-list">
@@ -47,7 +60,7 @@ const latestPosts = posts.slice(0, 4);
         <article class="post-row">
           <div>
             <h3><a href={link(`posts/${post.slug}`)}>{post.title}</a></h3>
-            <div class="post-meta"><time>{post.date} · {post.readTime}</time></div>
+            <div class="post-meta"><time>{post.date} · {post.readTime}</time>{post.series && <span> · {post.series}</span>}</div>
             <p>{post.summary}</p>
           </div>
         </article>
