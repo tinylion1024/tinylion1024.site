@@ -1,6 +1,11 @@
 import type { Post } from "./posts";
+import { batchAPostsEn } from "./editorial/batch-a.en";
+import { batchBPostsEn } from "./editorial/batch-b.en";
+import { batchCPostsEn } from "./editorial/batch-c.en";
+import { addSeriesVisual } from "./editorial/series";
+import { byNewestDate } from "./publication";
 
-export const postsEn: Post[] = [
+const legacyPostsEn: Post[] = [
   {
     slug: "subscribe-chatgpt-plus-with-apple-gift-card",
     translationOf: "subscribe-chatgpt-plus-with-apple-gift-card",
@@ -397,3 +402,13 @@ export const postsEn: Post[] = [
     highlights: ["Warp is my collaboration terminal for AI-assisted work; Ghostty is my fast, quiet execution terminal", "losing context while moving between tools", "The more a tool knows about your context", "perceived latency", "lets you leave the flow state less often"],
   },
 ];
+
+export const editorialPostsEn: Post[] = [
+  ...batchAPostsEn,
+  ...batchBPostsEn,
+  ...batchCPostsEn,
+].map((post) => addSeriesVisual(post, "en"));
+
+export const allPostsEn: Post[] = [...editorialPostsEn, ...legacyPostsEn].sort(byNewestDate);
+
+export const postsEn: Post[] = allPostsEn;

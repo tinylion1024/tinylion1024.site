@@ -23,7 +23,7 @@ const latestPosts = postsEn.slice(0, 4);
     <div class="hero-copy">
       <h1>Hi, I’m @tinylion1024.<RssLink href={link("en/rss.xml")} label="Subscribe via RSS" /></h1>
       <div class="hero-summary">
-        <p>I build products with AI and test them through real growth.</p>
+        <p>Essays on AI products, agent engineering, and the product and business consequences of technical change.</p>
         <SocialLinks aboutHref={link("en/about")} lang="en" />
       </div>
     </div>
@@ -42,6 +42,19 @@ const latestPosts = postsEn.slice(0, 4);
     </div>
   </section>
 
+  <section class="editorial-focus" aria-labelledby="editorial-focus">
+    <div class="section-heading">
+      <h2 id="editorial-focus">Core themes</h2>
+    </div>
+    <div class="focus-tags" aria-label="Five editorial themes">
+      <span>Models & Reasoning</span>
+      <span>Agent Products & UX</span>
+      <span>AI Software Engineering</span>
+      <span>AI Business & Growth</span>
+      <span>AI & Society</span>
+    </div>
+  </section>
+
   <section class="latest-section">
     <div class="section-label">Latest writing</div>
     <div class="post-list">
@@ -49,7 +62,7 @@ const latestPosts = postsEn.slice(0, 4);
         <article class="post-row">
           <div>
             <h3><a href={link(`en/posts/${post.slug}`)}>{post.title}</a></h3>
-            <div class="post-meta"><time>{post.date} · {post.readTime}</time></div>
+            <div class="post-meta"><time>{post.date} · {post.readTime}</time>{post.series && <span> · {post.series}</span>}</div>
             <p>{post.summary}</p>
           </div>
         </article>
