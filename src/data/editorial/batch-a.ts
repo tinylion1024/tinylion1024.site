@@ -1,4 +1,7 @@
 import type { Post } from "../posts";
+import { weaveLongForm } from "./longform";
+import { seriesDeepening } from "./longform-framework";
+import { batchADepth } from "./longform-depth-a";
 
 type Source = NonNullable<Post["sources"]>[number];
 
@@ -445,15 +448,7 @@ export const batchAPosts: Post[] = drafts.map((draft) => ({
   topic: draft.topic,
   series: draft.series,
   seriesSlug: draft.seriesSlug,
-  visuals: [
-    {
-      src: `/articles/editorial/${draft.slug}.svg`,
-      alt: `${draft.title}的概念图`,
-      afterParagraph: 3,
-      caption: `概念图：${draft.summary}`,
-    },
-  ],
   sources: draft.sources,
-  body: draft.paragraphs,
+  body: weaveLongForm([...draft.paragraphs, ...seriesDeepening(draft)], batchADepth[draft.slug]),
   highlights: draft.highlights,
 }));

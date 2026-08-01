@@ -1,9 +1,5 @@
 import type { Post } from "../posts";
 
-const visual = (slug: string, alt: string, caption: string) => [
-  { src: `/articles/editorial/${slug}.svg`, alt, afterParagraph: 3, caption },
-];
-
 export const batchBPostsEn: Post[] = [
   {
     slug: "ai-browser-intent-layer",
@@ -15,7 +11,6 @@ export const batchBPostsEn: Post[] = [
     topic: "AI Product",
     series: "Agent Products & UX",
     seriesSlug: "agent-products-ux",
-    visuals: visual("ai-browser-intent-layer", "A browser evolving from page navigation into intent understanding, task orchestration, and transaction execution", "The browser's unit of competition is shifting from the tab to the completed task."),
     sources: [
       { label: "OpenAI: Introducing Operator", href: "https://openai.com/index/introducing-operator/" },
       { label: "OpenAI: Computer-Using Agent", href: "https://openai.com/index/computer-using-agent/" },
@@ -45,7 +40,6 @@ export const batchBPostsEn: Post[] = [
     topic: "AI Product",
     series: "Agent Products & UX",
     seriesSlug: "agent-products-ux",
-    visuals: visual("background-agents-usage-frequency", "An asynchronous agent loop connecting a foreground conversation, background execution, event notifications, and review", "Async work turns waiting into a managed queue rather than merely hiding it."),
     sources: [
       { label: "OpenAI: Introducing Codex", href: "https://openai.com/index/introducing-codex/" },
       { label: "GitHub Docs: About Copilot coding agent", href: "https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent" },
@@ -74,7 +68,6 @@ export const batchBPostsEn: Post[] = [
     topic: "AI Product",
     series: "Agent Products & UX",
     seriesSlug: "agent-products-ux",
-    visuals: visual("human-in-the-loop-beyond-approval", "People participating in goal setting, in-flight intervention, exception handling, and final review", "A person is part of the control system, not a signature at the end of it."),
     sources: [
       { label: "NIST: AI Risk Management Framework", href: "https://www.nist.gov/itl/ai-risk-management-framework" },
       { label: "OpenAI: Operator safety and privacy", href: "https://openai.com/index/introducing-operator/" },
@@ -104,7 +97,6 @@ export const batchBPostsEn: Post[] = [
     topic: "AI Building",
     series: "AI Software Engineering",
     seriesSlug: "ai-software-engineering",
-    visuals: visual("ai-coding-from-generation-to-delivery", "An AI software-delivery chain from requirement and plan through repository changes, tests, and pull request", "Code is an intermediate artifact; a mergeable change is the delivery."),
     sources: [
       { label: "OpenAI: Introducing Codex", href: "https://openai.com/index/introducing-codex/" },
       { label: "GitHub Docs: About Copilot coding agent", href: "https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent" },
@@ -134,7 +126,6 @@ export const batchBPostsEn: Post[] = [
     topic: "AI Building",
     series: "AI Software Engineering",
     seriesSlug: "ai-software-engineering",
-    visuals: visual("agent-control-plane-after-harness-loop-graph", "Harness supplies execution, Loop drives feedback, Graph coordinates dependencies, and a control plane unifies policy and observability", "At scale, governance must move out of each agent's private logic."),
     sources: [
       { label: "OpenAI Agents SDK: Documentation", href: "https://openai.github.io/openai-agents-python/" },
       { label: "LangGraph: Durable execution", href: "https://docs.langchain.com/oss/python/langgraph/durable-execution" },
@@ -164,7 +155,6 @@ export const batchBPostsEn: Post[] = [
     topic: "AI Building",
     series: "AI Software Engineering",
     seriesSlug: "ai-software-engineering",
-    visuals: visual("pull-request-human-agent-interface", "An issue delegated to an agent that returns code, checks, and explanation through a pull request for human review", "A pull request carries a complete, traceable collaboration rather than merely displaying code."),
     sources: [
       { label: "GitHub Docs: About pull requests", href: "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests" },
       { label: "GitHub Docs: Copilot coding agent best practices", href: "https://docs.github.com/en/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/best-practices-for-using-copilot-to-work-on-tasks" },
@@ -193,7 +183,6 @@ export const batchBPostsEn: Post[] = [
     topic: "AI Building",
     series: "AI Software Engineering",
     seriesSlug: "ai-software-engineering",
-    visuals: visual("coding-agents-reshape-software-teams", "A traditional functional engineering team compared with an agent-enabled team organized around orchestration, platform governance, and review", "As implementation supply grows, judgment, boundaries, and acceptance become scarce."),
     sources: [
       { label: "DORA: Research program", href: "https://dora.dev/research/" },
       { label: "GitHub: Research on Copilot productivity", href: "https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/" },
@@ -223,7 +212,6 @@ export const batchBPostsEn: Post[] = [
     topic: "AI Building",
     series: "AI Software Engineering",
     seriesSlug: "ai-software-engineering",
-    visuals: visual("repository-memory-for-coding-agents", "Repository rules, architecture decisions, test evidence, and change history forming maintainable agent memory", "Good memory supplies verifiable constraints in the right scope, not simply more text."),
     sources: [
       { label: "OpenAI: AGENTS.md guide", href: "https://developers.openai.com/codex/guides/agents-md/" },
       { label: "GitHub Docs: Repository custom instructions", href: "https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-copilot-overview" },
@@ -253,7 +241,6 @@ export const batchBPostsEn: Post[] = [
     topic: "AI Building",
     series: "AI Software Engineering",
     seriesSlug: "ai-software-engineering",
-    visuals: visual("execution-environment-beats-prompt", "The same agent task failing in a fragile environment and succeeding through feedback in a reproducible one", "Prompts set direction; environments determine whether an agent can learn from reality and finish."),
     sources: [
       { label: "OpenAI: Introducing Codex", href: "https://openai.com/index/introducing-codex/" },
       { label: "GitHub Docs: Prebuilding Codespaces", href: "https://docs.github.com/en/codespaces/prebuilding-your-codespaces" },
@@ -283,7 +270,6 @@ export const batchBPostsEn: Post[] = [
     topic: "AI Building",
     series: "AI Software Engineering",
     seriesSlug: "ai-software-engineering",
-    visuals: visual("sandbox-standard-agent-infrastructure", "An agent constrained by filesystem, process, network, credential, time, and resource boundaries", "A sandbox makes the impact of errors predictable, terminable, and recoverable."),
     sources: [
       { label: "OpenAI: Codex system card", href: "https://cdn.openai.com/pdf/8df7697b-c1b2-4222-be00-1fd3298f351d/codex_system_card.pdf" },
       { label: "Firecracker: Secure and fast microVMs", href: "https://firecracker-microvm.github.io/" },
@@ -313,7 +299,6 @@ export const batchBPostsEn: Post[] = [
     topic: "AI Building",
     series: "AI Software Engineering",
     seriesSlug: "ai-software-engineering",
-    visuals: visual("design-to-code-needs-design-systems", "A loop connecting design tokens, component mappings, generated code, and visual regression", "Generating one page is easy; maintaining one coherent product language is the hard part."),
     sources: [
       { label: "Figma: Introducing Dev Mode", href: "https://www.figma.com/blog/introducing-dev-mode/" },
       { label: "Figma: Introducing the Dev Mode MCP server", href: "https://www.figma.com/blog/introducing-figma-mcp-server/" },
@@ -343,7 +328,6 @@ export const batchBPostsEn: Post[] = [
     topic: "AI Building",
     series: "AI Software Engineering",
     seriesSlug: "ai-software-engineering",
-    visuals: visual("can-non-programmers-build-software", "A responsibility ladder from natural-language prototype through data, permissions, testing, deployment, and maintenance", "Lowering the syntax barrier moves complexity toward product responsibility rather than eliminating it."),
     sources: [
       { label: "GitHub: Spark public preview", href: "https://github.blog/changelog/2025-09-30-github-spark-in-public-preview-for-copilot-enterprise-subscribers/" },
       { label: "Replit Docs: Build and publish your first app", href: "https://docs.replit.com/build/your-first-app" },
@@ -373,7 +357,6 @@ export const batchBPostsEn: Post[] = [
     topic: "AI Building",
     series: "AI Software Engineering",
     seriesSlug: "ai-software-engineering",
-    visuals: visual("ai-generated-technical-debt", "Technical debt accumulating as generation speed exceeds understanding, review, and deletion capacity", "The root problem is not machine-written code but changes the organization cannot explain or maintain."),
     sources: [
       { label: "DORA: Research program", href: "https://dora.dev/research/" },
       { label: "Google: Software Engineering at Google", href: "https://abseil.io/resources/swe-book" },
@@ -403,7 +386,6 @@ export const batchBPostsEn: Post[] = [
     topic: "Growth Validation",
     series: "AI Business & Growth",
     seriesSlug: "ai-business-growth",
-    visuals: visual("first-wow-second-unused-chasm", "A retention path from initial surprise through a stable trigger and predictable result to a repeated habit", "The growth problem is teaching users when the product is worth using again."),
     sources: [
       { label: "Amplitude: Product analytics guides", href: "https://amplitude.com/guides" },
       { label: "Mixpanel: Product benchmarks", href: "https://mixpanel.com/benchmarks/" },
@@ -433,7 +415,6 @@ export const batchBPostsEn: Post[] = [
     topic: "Growth Validation",
     series: "AI Business & Growth",
     seriesSlug: "ai-business-growth",
-    visuals: visual("saas-seat-to-outcome-pricing", "Seat, usage, action, and outcome pricing models distributing risk differently between AI vendor and customer", "The closer billing gets to business value, the more delivery and attribution risk the vendor assumes."),
     sources: [
       { label: "Salesforce: Agentforce pricing", href: "https://www.salesforce.com/agentforce/pricing/" },
       { label: "Salesforce Help: Agentforce pricing models", href: "https://help.salesforce.com/s/articleView?id=004811240&language=en_US&type=1" },
@@ -463,7 +444,6 @@ export const batchBPostsEn: Post[] = [
     topic: "Growth Validation",
     series: "AI Business & Growth",
     seriesSlug: "ai-business-growth",
-    visuals: visual("ai-product-gross-margin", "An AI product margin waterfall subtracting inference, tools, runtime, human review, and support from revenue", "The useful optimization target is total cost per accepted outcome, not the price of one token."),
     sources: [
       { label: "OpenAI: API pricing", href: "https://openai.com/api/pricing/" },
       { label: "Anthropic: API pricing", href: "https://www.anthropic.com/pricing" },
@@ -493,7 +473,6 @@ export const batchBPostsEn: Post[] = [
     topic: "Growth Validation",
     series: "AI Business & Growth",
     seriesSlug: "ai-business-growth",
-    visuals: visual("distribution-beats-better-model", "Model capability passing through system entry points, workflows, channels, and trust before becoming adoption", "Models set the capability ceiling; distribution decides whether it enters real behavior."),
     sources: [
       { label: "Apple Developer: App Review Guidelines", href: "https://developer.apple.com/app-store/review/guidelines/" },
       { label: "Google Play Console: Store listing best practices", href: "https://support.google.com/googleplay/android-developer/answer/13393723" },

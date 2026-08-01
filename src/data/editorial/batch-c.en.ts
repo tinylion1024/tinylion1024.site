@@ -1,10 +1,6 @@
 import type { Post } from "../posts";
 import { batchCPosts } from "./batch-c";
 
-const visual = (slug: string, alt: string, caption: string) => [
-  { src: `/articles/editorial/${slug}.svg`, alt, afterParagraph: 3, caption },
-];
-
 const sourcesFor = (slug: string) =>
   (batchCPosts.find((post) => post.slug === slug)?.sources ?? []).map((source) => ({
     ...source,
@@ -25,7 +21,6 @@ export const batchCPostsEn: Post[] = [
     summary: "When discovery, comparison, and purchase happen inside one conversation, brands compete to become legible, verifiable, and transactable to agents—not merely visible in search.",
     date: "2026.03.25", readTime: "10 min", topic: "Growth Validation",
     series: "AI Business & Growth", seriesSlug: "ai-business-growth",
-    visuals: visual("chatgpt-shopping-rewrites-ecommerce-funnel", "Comparison of the traditional ecommerce funnel and a conversational shopping loop", "Conversational shopping compresses discovery, evaluation, and transaction into a loop that progressively resolves intent."),
     sources: sourcesFor("chatgpt-shopping-rewrites-ecommerce-funnel"),
     body: [
       "The classic ecommerce funnel assumes a sequence: impression, search, product page, cart, and checkout. ChatGPT Shopping pulls those stages into one conversation. A shopper states a need, answers clarifying questions, compares options, and moves to merchant checkout without repeatedly rebuilding context.",
@@ -45,7 +40,6 @@ export const batchCPostsEn: Post[] = [
     summary: "Model capability diffuses quickly. Preferences, relationships, decision history, and corrections are harder to move—but context becomes an asset only when users can inspect, control, and delete it.",
     date: "2026.01.15", readTime: "10 min", topic: "Growth Validation",
     series: "AI Business & Growth", seriesSlug: "ai-business-growth",
-    visuals: visual("personal-context-as-ai-moat", "Layers from a general model to compounding personal context", "Context compounds through repeated correction, not through indiscriminate storage of every conversation."),
     sources: sourcesFor("personal-context-as-ai-moat"),
     body: [
       "Foundation models increasingly resemble replaceable engines. Products can route among providers, and frontier capabilities diffuse. What is harder to copy is the personal context accumulated through use: preferences, working habits, relationships, project history, and the corrections a user has made.",
@@ -65,7 +59,6 @@ export const batchCPostsEn: Post[] = [
     summary: "What an agent may see, whom it represents, and when it must stop determines whether enterprise AI can leave the demo. Authorization is becoming core agent infrastructure.",
     date: "2025.07.17", readTime: "11 min", topic: "Growth Validation",
     series: "AI Business & Growth", seriesSlug: "ai-business-growth",
-    visuals: visual("enterprise-ai-bottleneck-is-permissions", "Identity, policy, tools, and audit chain for an enterprise agent", "Every production agent action should bind an actor, scope, time limit, and audit record."),
     sources: sourcesFor("enterprise-ai-bottleneck-is-permissions"),
     body: [
       "Buying a capable model is easy. Letting it into a real enterprise workflow is not. An assistant that summarizes documents has limited reach; an agent that reads customer records, edits contracts, sends email, or triggers payments must establish whom it represents and who is accountable.",
@@ -85,7 +78,6 @@ export const batchCPostsEn: Post[] = [
     summary: "General assistants own frequency, identity, and distribution; vertical agents own workflow, responsibility, and domain data. The likely outcome is a negotiated split between gateway and delivery layer.",
     date: "2025.10.07", readTime: "10 min", topic: "Growth Validation",
     series: "AI Business & Growth", seriesSlug: "ai-business-growth",
-    visuals: visual("ai-super-app-vs-vertical-agent", "Value chain between a general AI gateway and vertical agent delivery layers", "General assistants aggregate intent; vertical agents carry specialist execution and accountability."),
     sources: sourcesFor("ai-super-app-vs-vertical-agent"),
     body: [
       "The AI super-app thesis is compelling: one assistant holds identity, memory, payments, and a tool ecosystem, and the user only needs to state a goal. A high-frequency interface can distribute new capabilities to a vast audience almost instantly.",
@@ -105,7 +97,6 @@ export const batchCPostsEn: Post[] = [
     summary: "Ads can subsidize inference and widen free access, but conversation exposes unusually sensitive intent. Monetization must separate sponsorship, answers, and personal context by design.",
     date: "2026.05.06", readTime: "10 min", topic: "Growth Validation",
     series: "AI Business & Growth", seriesSlug: "ai-business-growth",
-    visuals: visual("should-ai-assistants-have-ads", "Three boundaries separating answers, sponsorship, and user control in an AI assistant", "Advertising can exist only behind clear boundaries around answer independence, sensitive contexts, and user choice."),
     sources: sourcesFor("should-ai-assistants-have-ads"),
     body: [
       "AI assistants incur substantial inference costs, while free access broadens participation. Advertising is therefore an understandable business option. The harder question is whether a conversational product can monetize intent without corrupting the trust that makes the assistant useful.",
@@ -125,7 +116,6 @@ export const batchCPostsEn: Post[] = [
     summary: "Glasses place AI inside a loop of continuous perception, immediate questions, and hands-free action. A platform shift still requires batteries, privacy, displays, input, and an ecosystem to mature together.",
     date: "2025.05.21", readTime: "10 min", topic: "Growth Validation",
     series: "AI Business & Growth", seriesSlug: "ai-business-growth",
-    visuals: visual("ai-glasses-as-next-computing-platform", "Real-time loop from perception to understanding, action, and feedback in AI glasses", "Glasses are distinctive because perception, intent, and assistance can meet in the same physical moment."),
     sources: sourcesFor("ai-glasses-as-next-computing-platform"),
     body: [
       "Smartphones put computing in a pocket; AI glasses attempt to put it in a person's field of view. The important difference is not another display. It is the ability to combine visual, audio, location, and orientation context at the moment an action occurs.",
@@ -145,7 +135,6 @@ export const batchCPostsEn: Post[] = [
     summary: "Risk classification, documentation, transparency, logs, and human oversight must enter the product lifecycle. Retrofitting them late creates expensive and often unverifiable compliance debt.",
     date: "2026.07.21", readTime: "11 min", topic: "Personal Thinking",
     series: "AI & Society", seriesSlug: "ai-and-society",
-    visuals: visual("ai-act-compliance-as-product-capability", "AI Act compliance lifecycle from product definition through monitoring", "Compliance evidence should be produced with the system, not reconstructed shortly before release."),
     sources: sourcesFor("ai-act-compliance-as-product-capability"),
     body: [
       "The EU AI Act entered into force in August 2024 and applies in stages from 2025 through 2027, making “we will handle compliance later” an increasingly costly position. Risk classification, the role of each company in the value chain, and the source model can determine whether a product may launch and what evidence must exist.",
@@ -165,7 +154,6 @@ export const batchCPostsEn: Post[] = [
     summary: "Litigation alone cannot settle training-data conflict. Machine-readable reservations, provenance, collective licensing, and revenue allocation are turning copyright into an infrastructure market.",
     date: "2025.05.12", readTime: "11 min", topic: "Personal Thinking",
     series: "AI & Society", seriesSlug: "ai-and-society",
-    visuals: visual("training-data-copyright-license-market", "Training-data market connecting rightsholders, licensing services, model developers, and auditors", "A viable license market needs traceable rights, permitted uses, and compensation—not a one-time contract."),
     sources: sourcesFor("training-data-copyright-license-market"),
     body: [
       "Training-data disputes are often compressed into one question: is model training fair use? Industry must solve a longer chain—whether a work is protected, who controls the rights, which uses are permitted, how provenance persists, and how value is distributed.",
@@ -185,7 +173,6 @@ export const batchCPostsEn: Post[] = [
     summary: "Banning tools cannot restore the old assessment environment. Schools must evaluate problem framing, evidence, process reflection, oral explanation, and independent capability.",
     date: "2024.09.04", readTime: "10 min", topic: "Personal Thinking",
     series: "AI & Society", seriesSlug: "ai-and-society",
-    visuals: visual("education-when-every-student-uses-ai", "Assessment framework moving from final answers toward process and capability evidence", "Assessment should extend from the final artifact to the problem, process, evidence, explanation, and transfer."),
     sources: sourcesFor("education-when-every-student-uses-ai"),
     body: [
       "When AI can rapidly generate essays, code, and worked solutions, traditional homework loses part of its measurement value. It may show that a student can submit a polished artifact, but no longer proves what the student understood or can transfer to a new setting.",
@@ -205,7 +192,6 @@ export const batchCPostsEn: Post[] = [
     summary: "A job is not an indivisible unit. AI first reallocates tasks, changes handoffs, and reshapes skill bundles; organizations then redefine roles, advancement, and pay.",
     date: "2025.05.20", readTime: "10 min", topic: "Personal Thinking",
     series: "AI & Society", seriesSlug: "ai-and-society",
-    visuals: visual("ai-recuts-jobs-before-replacement", "A job decomposed into tasks and recombined across people, agents, and automation", "The first-order impact is usually task recomposition rather than the disappearance of a whole occupation."),
     sources: sourcesFor("ai-recuts-jobs-before-replacement"),
     body: [
       "“Which jobs will AI replace?” uses the wrong unit. Jobs bundle research, communication, judgment, entry, coordination, and accountability. Those tasks have different automation profiles. AI changes the bundle first; organizations later decide whether to shrink, expand, or rename the role.",
@@ -225,7 +211,6 @@ export const batchCPostsEn: Post[] = [
     summary: "The transformative loop runs from hypothesis and experimental design to automated execution and validation. Scientific models must remain answerable to the physical world.",
     date: "2024.10.10", readTime: "10 min", topic: "Personal Thinking",
     series: "AI & Society", seriesSlug: "ai-and-society",
-    visuals: visual("ai-for-science-beyond-reading-papers", "Scientific loop connecting hypotheses, experiments, measurements, and updates", "A scientific agent matters when it can close an experimental loop, not merely produce a longer literature summary."),
     sources: sourcesFor("ai-for-science-beyond-reading-papers"),
     body: [
       "Reading and summarizing a vast literature is useful, but it does not automatically create discovery. Summaries compress published knowledge. Research requires falsifiable hypotheses, experiments that distinguish explanations, and results capable of forcing a theory to change.",
@@ -245,7 +230,6 @@ export const batchCPostsEn: Post[] = [
     summary: "As text, images, code, and identity become cheap to synthesize, value moves toward provenance, signatures, testing, warranties, and accountable institutions.",
     date: "2024.11.21", readTime: "10 min", topic: "Personal Thinking",
     series: "AI & Society", seriesSlug: "ai-and-society",
-    visuals: visual("the-verification-economy", "Value shifting from content generation toward provenance, validation, warranty, and accountability", "When production cost falls, trustworthy origin and accountable delivery absorb more value."),
     sources: sourcesFor("the-verification-economy"),
     body: [
       "Generative AI drives the marginal cost of drafts, images, code, and voices downward. Scarcity does not disappear; it moves. People struggle to establish where material came from, whether it was altered, whether it works, and who bears the cost of failure.",
@@ -265,7 +249,6 @@ export const batchCPostsEn: Post[] = [
     summary: "Long-term memory, emotional inference, and live experimentation move persuasion from audience segments to individual adaptation. The danger is continuous influence that remains invisible.",
     date: "2024.05.09", readTime: "11 min", topic: "Personal Thinking",
     series: "AI & Society", seriesSlug: "ai-and-society",
-    visuals: visual("personalized-persuasion-danger", "Persuasion loop connecting personal context, timing, message generation, and feedback", "The risk comes from optimizing the recipient, content, and moment together—and learning continuously from the response."),
     sources: sourcesFor("personalized-persuasion-danger"),
     body: [
       "Content generation is not AI's most distinctive persuasion capability. Advertising already knows how to produce copy. The new variable is a system that remembers an individual, detects hesitation in conversation, and adapts argument, tone, and timing in real time.",
@@ -285,7 +268,6 @@ export const batchCPostsEn: Post[] = [
     summary: "The constraint has expanded from algorithms to fabrication, packaging, memory, networks, grids, cooling, and capital. A shortage anywhere can determine whether intelligence scales economically.",
     date: "2025.04.11", readTime: "11 min", topic: "Personal Thinking",
     series: "AI & Society", seriesSlug: "ai-and-society",
-    visuals: visual("compute-power-chips-infrastructure-war", "AI infrastructure chain from wafers and packaging through data centers, grids, and model services", "AI supply is a coupled chain whose tightest link sets the pace of expansion."),
     sources: sourcesFor("compute-power-chips-infrastructure-war"),
     body: [
       "AI competition is often narrated as an algorithm race, but productive capacity depends on a physical chain: advanced wafers, packaging, high-bandwidth memory, networking, servers, land, grids, cooling, and long-duration capital. Models operate inside those constraints.",
@@ -305,7 +287,6 @@ export const batchCPostsEn: Post[] = [
     summary: "The U.S. leads in frontier models, chips, and global developer platforms; China is formidable in engineering diffusion, deployment, and cost competition. Policy and market structure favor durable coexistence.",
     date: "2025.08.27", readTime: "11 min", topic: "Personal Thinking",
     series: "AI & Society", seriesSlug: "ai-and-society",
-    visuals: visual("china-us-ai-ecosystem-routes", "Different feedback loops across models, infrastructure, applications, and policy in China and the United States", "Distinct resource endowments and market feedback produce different routes rather than a simple follower-leader pattern."),
     sources: sourcesFor("china-us-ai-ecosystem-routes"),
     body: [
       "Reducing U.S.–China AI competition to model leaderboards misses the ecosystem. Capability emerges from chips, capital, cloud platforms, developers, industrial customers, and regulatory feedback. Different starting conditions produce different optimization targets.",
@@ -325,7 +306,6 @@ export const batchCPostsEn: Post[] = [
     summary: "Persistent agents that act across systems need stable identity, constrained credentials, reputation, budgets, and accountability. The internet must recognize machines acting on delegated human authority.",
     date: "2025.08.18", readTime: "11 min", topic: "Personal Thinking",
     series: "AI & Society", seriesSlug: "ai-and-society",
-    visuals: visual("agents-as-identity-bearing-digital-actors", "A user delegates to an agent carrying identity, permissions, budget, and audit records across services", "Agent identity is verifiable delegation: who it is, whom it represents, what it may do, and who remains accountable."),
     sources: sourcesFor("agents-as-identity-bearing-digital-actors"),
     body: [
       "The consequential agent shift in 2027 may be less about reasoning and more about recognition. Persistent agents will read files, negotiate prices, submit forms, and coordinate other agents in the background. Sharing a user's account cannot safely represent those relationships.",

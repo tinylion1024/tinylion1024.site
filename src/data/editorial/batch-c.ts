@@ -1,17 +1,16 @@
 import type { Post } from "../posts";
+import { weaveLongForm } from "./longform";
+import { closingPasses } from "./longform-conclusions";
+import { seriesDeepening } from "./longform-framework";
+import { batchCDepth } from "./longform-depth-c";
 
-const visual = (slug: string, alt: string, caption: string) => [
-  { src: `/articles/editorial/${slug}.svg`, alt, afterParagraph: 3, caption },
-];
-
-export const batchCPosts: Post[] = [
+const batchCPostsBase: Post[] = [
   {
     slug: "chatgpt-shopping-rewrites-ecommerce-funnel",
     title: "ChatGPT Shopping 重写电商漏斗：搜索、比较与下单正在合并",
     summary: "当商品发现、比较和购买发生在同一次对话里，品牌争夺的不再只是搜索排名，而是能否成为 Agent 可理解、可验证、可交易的商品供给。",
     date: "2026.03.25", readTime: "10 min", topic: "增长验证",
     series: "AI 商业与增长", seriesSlug: "ai-business-growth",
-    visuals: visual("chatgpt-shopping-rewrites-ecommerce-funnel", "传统电商漏斗与对话式购物闭环的对比", "对话式购物把发现、评估和交易压缩进一个持续迭代的意图回路。"),
     sources: [
       { label: "OpenAI：Powering Product Discovery in ChatGPT", href: "https://openai.com/index/powering-product-discovery-in-chatgpt/" },
       { label: "OpenAI：Agentic Commerce Protocol", href: "https://developers.openai.com/commerce/" },
@@ -36,7 +35,6 @@ export const batchCPosts: Post[] = [
     summary: "模型能力会扩散，长期偏好、关系、历史决策和纠错记录更难迁移；但上下文只有在可控、可见、可删除时才会成为资产。",
     date: "2026.01.15", readTime: "10 min", topic: "增长验证",
     series: "AI 商业与增长", seriesSlug: "ai-business-growth",
-    visuals: visual("personal-context-as-ai-moat", "从通用模型到个人上下文复利的分层图", "上下文的价值来自持续纠错形成的复利，而不是单纯保存更多聊天。"),
     sources: [
       { label: "OpenAI：Memory and new controls for ChatGPT", href: "https://openai.com/index/memory-and-new-controls-for-chatgpt/" },
       { label: "OpenAI：Data Controls FAQ", href: "https://help.openai.com/en/articles/7730893-data-controls-faq" },
@@ -61,7 +59,6 @@ export const batchCPosts: Post[] = [
     summary: "Agent 能看见多少、代表谁行动、何时必须停下，决定了企业 AI 能否从演示进入生产。权限系统正在成为 Agent 基础设施。",
     date: "2025.07.17", readTime: "11 min", topic: "增长验证",
     series: "AI 商业与增长", seriesSlug: "ai-business-growth",
-    visuals: visual("enterprise-ai-bottleneck-is-permissions", "企业 Agent 的身份、策略、工具与审计权限链", "生产级 Agent 的每一步都应绑定主体、范围、时限和审计记录。"),
     sources: [
       { label: "NIST：AI Risk Management Framework", href: "https://www.nist.gov/itl/ai-risk-management-framework" },
       { label: "AWS：IAM Permissions for AgentCore Runtime", href: "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-permissions.html" },
@@ -86,7 +83,6 @@ export const batchCPosts: Post[] = [
     summary: "通用助手拥有频率、身份和分发，垂直 Agent 拥有工作流、责任与行业数据。胜负不会是二选一，而是入口与交付层的重新分工。",
     date: "2025.10.07", readTime: "10 min", topic: "增长验证",
     series: "AI 商业与增长", seriesSlug: "ai-business-growth",
-    visuals: visual("ai-super-app-vs-vertical-agent", "通用 AI 入口与垂直 Agent 交付层的价值链", "通用助手聚合意图，垂直 Agent 承担专业执行与责任边界。"),
     sources: [
       { label: "OpenAI：Apps in ChatGPT", href: "https://openai.com/index/introducing-apps-in-chatgpt/" },
       { label: "Google：Gemini app", href: "https://gemini.google.com/" },
@@ -111,7 +107,6 @@ export const batchCPosts: Post[] = [
     summary: "广告可以补贴算力并扩大免费访问，但对话承载着比搜索词更敏感的意图。商业化必须把赞助、答案和个人上下文彻底分层。",
     date: "2026.05.06", readTime: "10 min", topic: "增长验证",
     series: "AI 商业与增长", seriesSlug: "ai-business-growth",
-    visuals: visual("should-ai-assistants-have-ads", "AI 助手中答案、赞助位与用户控制的三层边界", "广告可以存在，但必须与答案生成、敏感上下文和用户控制保持清晰边界。"),
     sources: [
       { label: "OpenAI：Our approach to advertising and expanding access", href: "https://openai.com/index/our-approach-to-advertising-and-expanding-access/" },
       { label: "OpenAI：New ways to buy ChatGPT ads", href: "https://openai.com/index/new-ways-to-buy-chatgpt-ads/" },
@@ -136,7 +131,6 @@ export const batchCPosts: Post[] = [
     summary: "眼镜把 AI 放进连续感知、即时询问和免手操作的回路，但真正的平台跃迁取决于续航、隐私、显示、输入和开发生态能否同时成立。",
     date: "2025.05.21", readTime: "10 min", topic: "增长验证",
     series: "AI 商业与增长", seriesSlug: "ai-business-growth",
-    visuals: visual("ai-glasses-as-next-computing-platform", "AI 眼镜从感知到理解、行动和反馈的实时回路", "眼镜的独特价值是让感知、意图和行动发生在同一现场。"),
     sources: [
       { label: "Meta：Ray-Ban Meta AI glasses", href: "https://www.meta.com/smart-glasses/" },
       { label: "Google：Android XR", href: "https://blog.google/products/android/android-xr/" },
@@ -161,7 +155,6 @@ export const batchCPosts: Post[] = [
     summary: "风险分类、技术文档、透明度、日志和人工监督必须进入产品生命周期；越晚补做，越容易演变为昂贵且不可验证的合规债务。",
     date: "2026.07.21", readTime: "11 min", topic: "个人思考",
     series: "AI 与社会", seriesSlug: "ai-and-society",
-    visuals: visual("ai-act-compliance-as-product-capability", "从产品定义到监控的 AI Act 合规生命周期", "合规证据应随产品开发同步生成，而不是发布前一次性拼接。"),
     sources: [
       { label: "European Commission：AI Act", href: "https://digital-strategy.ec.europa.eu/en/factpages/ai-act" },
       { label: "EUR-Lex：Regulation (EU) 2024/1689", href: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj" },
@@ -186,7 +179,6 @@ export const batchCPosts: Post[] = [
     summary: "诉讼不会单独解决训练数据争议。可机器读取的权利保留、来源记录、集体许可与收益分配，正在把版权冲突推向新的基础设施市场。",
     date: "2025.05.12", readTime: "11 min", topic: "个人思考",
     series: "AI 与社会", seriesSlug: "ai-and-society",
-    visuals: visual("training-data-copyright-license-market", "内容权利人、许可平台、模型公司与审计方的训练数据市场", "许可市场的核心不是一次签约，而是可追踪的权利、用途和收益链。"),
     sources: [
       { label: "U.S. Copyright Office：Copyright and Artificial Intelligence", href: "https://www.copyright.gov/ai/" },
       { label: "European Commission：GPAI provider obligations", href: "https://digital-strategy.ec.europa.eu/en/faqs/guidelines-obligations-general-purpose-ai-providers" },
@@ -211,7 +203,6 @@ export const batchCPosts: Post[] = [
     summary: "禁止工具无法恢复旧世界。教育需要从监督最终答案，转向观察问题定义、证据判断、过程反思、口头解释与独立能力。",
     date: "2024.09.04", readTime: "10 min", topic: "个人思考",
     series: "AI 与社会", seriesSlug: "ai-and-society",
-    visuals: visual("education-when-every-student-uses-ai", "AI 时代从答案评分转向过程与能力证据的评价框架", "评价对象应从一份成品扩展到问题、过程、证据、解释和迁移。"),
     sources: [
       { label: "UNESCO：Guidance for generative AI in education and research", href: "https://www.unesco.org/en/articles/guidance-generative-ai-education-and-research" },
       { label: "UNESCO：AI competency frameworks", href: "https://www.unesco.org/en/digital-education/ai-future-learning" },
@@ -236,7 +227,6 @@ export const batchCPosts: Post[] = [
     summary: "工作不是一个不可分割的单位。AI 会先接管部分任务、改变交接界面和能力组合，再让组织重新定义职位、晋升与薪酬。",
     date: "2025.05.20", readTime: "10 min", topic: "个人思考",
     series: "AI 与社会", seriesSlug: "ai-and-society",
-    visuals: visual("ai-recuts-jobs-before-replacement", "岗位被拆成任务并在人、AI 与自动化之间重新组合", "AI 的第一轮影响往往是任务重组，而不是整份职位消失。"),
     sources: [
       { label: "ILO：Generative AI and Jobs", href: "https://www.ilo.org/publications/generative-ai-and-jobs-refined-global-index-occupational-exposure" },
       { label: "Anthropic：Economic Index", href: "https://www.anthropic.com/economic-index" },
@@ -261,7 +251,6 @@ export const batchCPosts: Post[] = [
     summary: "真正改变科研速度的不是文献摘要，而是从假设、实验设计、自动化执行到结果验证的闭环；模型必须接受物理世界的反驳。",
     date: "2024.10.10", readTime: "10 min", topic: "个人思考",
     series: "AI 与社会", seriesSlug: "ai-and-society",
-    visuals: visual("ai-for-science-beyond-reading-papers", "AI 驱动的假设、实验、测量与更新科研闭环", "科学 Agent 的价值来自闭环实验，而不是更长的文献摘要。"),
     sources: [
       { label: "Google DeepMind：AlphaFold", href: "https://deepmind.google/science/alphafold/" },
       { label: "AlphaFold Protein Structure Database", href: "https://alphafold.ebi.ac.uk/" },
@@ -286,7 +275,6 @@ export const batchCPosts: Post[] = [
     summary: "文本、图片、代码和身份都能低成本合成后，市场会把价值转移到来源、签名、测试、担保和责任主体。验证将成为新的基础设施与职业。",
     date: "2024.11.21", readTime: "10 min", topic: "个人思考",
     series: "AI 与社会", seriesSlug: "ai-and-society",
-    visuals: visual("the-verification-economy", "从内容生成到来源、验证、担保和责任的价值迁移", "生成成本下降后，可信来源与责任链会承接更多价值。"),
     sources: [
       { label: "C2PA：Technical Specification", href: "https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html" },
       { label: "NIST：AI 100-4 Synthetic Content Transparency", href: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-4.pdf" },
@@ -311,7 +299,6 @@ export const batchCPosts: Post[] = [
     summary: "长期记忆、情绪识别与实时实验让说服从人群定向走向个人适配。风险不只是假信息，而是系统持续塑造选择却不被察觉。",
     date: "2024.05.09", readTime: "11 min", topic: "个人思考",
     series: "AI 与社会", seriesSlug: "ai-and-society",
-    visuals: visual("personalized-persuasion-danger", "个人上下文、时机选择、消息生成与反馈优化形成的说服闭环", "危险来自系统对对象、内容和时机同时优化，并持续从反馈中学习。"),
     sources: [
       { label: "NIST：AI Risk Management Framework", href: "https://www.nist.gov/itl/ai-risk-management-framework" },
       { label: "European Commission：Digital Services Act", href: "https://digital-strategy.ec.europa.eu/en/policies/digital-services-act-package" },
@@ -336,7 +323,6 @@ export const batchCPosts: Post[] = [
     summary: "模型竞争的约束从算法扩展到先进制程、封装、内存、网络、电网、冷却和资本。任何一环短缺，都可能决定产品能否按成本扩张。",
     date: "2025.04.11", readTime: "11 min", topic: "个人思考",
     series: "AI 与社会", seriesSlug: "ai-and-society",
-    visuals: visual("compute-power-chips-infrastructure-war", "从晶圆、封装和内存到数据中心、电网与模型服务的 AI 基础设施链", "AI 供给是一条耦合链，最紧缺的环节会定义整体扩张速度。"),
     sources: [
       { label: "IEA：Energy and AI", href: "https://www.iea.org/reports/energy-and-ai" },
       { label: "U.S. Department of Energy：Data Centers and the Power Grid", href: "https://www.energy.gov/articles/doe-releases-new-report-evaluating-increase-electricity-demand-data-centers" },
@@ -361,7 +347,6 @@ export const batchCPosts: Post[] = [
     summary: "美国更强于前沿模型、芯片和全球开发者平台，中国更擅长工程扩散、场景整合与成本竞争。政策、供应链和市场结构会让两套生态长期共存。",
     date: "2025.08.27", readTime: "11 min", topic: "个人思考",
     series: "AI 与社会", seriesSlug: "ai-and-society",
-    visuals: visual("china-us-ai-ecosystem-routes", "中美 AI 生态在模型、基础设施、应用和政策上的不同反馈回路", "两套生态由不同资源禀赋和市场反馈塑造，不会收敛成单一复制关系。"),
     sources: [
       { label: "The White House：America's AI Action Plan", href: "https://www.whitehouse.gov/wp-content/uploads/2025/07/Americas-AI-Action-Plan.pdf" },
       { label: "U.S. BIS：Advanced Computing and Semiconductor Manufacturing Controls", href: "https://www.bis.gov/press-release/commerce-strengthens-restrictions-advanced-computing-semiconductors-semiconductor-manufacturing-equipment" },
@@ -386,7 +371,6 @@ export const batchCPosts: Post[] = [
     summary: "当 Agent 能长期运行并跨系统行动，它需要稳定身份、受限凭据、声誉、预算和责任链。未来互联网将不仅服务用户，也要识别代表用户行动的机器主体。",
     date: "2025.08.18", readTime: "11 min", topic: "个人思考",
     series: "AI 与社会", seriesSlug: "ai-and-society",
-    visuals: visual("agents-as-identity-bearing-digital-actors", "用户委托 Agent，Agent 携带身份、权限、预算与审计进入多个系统", "Agent 身份的核心是可验证委托：它是谁、代表谁、能做什么、责任归谁。"),
     sources: [
       { label: "W3C：Verifiable Credentials Data Model 2.0", href: "https://www.w3.org/TR/vc-data-model-2.0/" },
       { label: "IETF：OAuth 2.0", href: "https://datatracker.ietf.org/doc/html/rfc6749" },
@@ -406,3 +390,8 @@ export const batchCPosts: Post[] = [
     highlights: ["一种可识别主体", "每个任务只获得短期、最小化能力", "让它的权力可限制、行为可追踪、责任可落地"],
   },
 ];
+
+export const batchCPosts: Post[] = batchCPostsBase.map((post) => ({
+  ...post,
+  body: weaveLongForm([...post.body, ...closingPasses(post.slug), ...seriesDeepening(post)], batchCDepth[post.slug]),
+}));

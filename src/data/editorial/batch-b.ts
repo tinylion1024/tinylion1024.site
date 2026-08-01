@@ -1,10 +1,9 @@
 import type { Post } from "../posts";
+import { weaveLongForm } from "./longform";
+import { seriesDeepening } from "./longform-framework";
+import { batchBDepth } from "./longform-depth-b";
 
-const visual = (slug: string, alt: string, caption: string) => [
-  { src: `/articles/editorial/${slug}.svg`, alt, afterParagraph: 3, caption },
-];
-
-export const batchBPosts: Post[] = [
+const batchBPostsBase: Post[] = [
   {
     slug: "ai-browser-intent-layer",
     title: "AI 浏览器争夺的不是入口，而是用户意图",
@@ -14,7 +13,6 @@ export const batchBPosts: Post[] = [
     topic: "AI 产品",
     series: "Agent 产品与体验",
     seriesSlug: "agent-products-ux",
-    visuals: visual("ai-browser-intent-layer", "浏览器从页面入口升级为意图理解、任务编排和交易执行层", "浏览器的竞争单位正在从标签页变成完整任务。"),
     sources: [
       { label: "OpenAI：Introducing Operator", href: "https://openai.com/index/introducing-operator/" },
       { label: "OpenAI：Computer-Using Agent", href: "https://openai.com/index/computer-using-agent/" },
@@ -43,7 +41,6 @@ export const batchBPosts: Post[] = [
     topic: "AI 产品",
     series: "Agent 产品与体验",
     seriesSlug: "agent-products-ux",
-    visuals: visual("background-agents-usage-frequency", "前台对话、后台执行、事件通知和结果复核组成的异步 Agent 循环", "异步不是把等待藏起来，而是把等待变成可管理的工作队列。"),
     sources: [
       { label: "OpenAI：Introducing Codex", href: "https://openai.com/index/introducing-codex/" },
       { label: "GitHub Docs：About Copilot coding agent", href: "https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent" },
@@ -71,7 +68,6 @@ export const batchBPosts: Post[] = [
     topic: "AI 产品",
     series: "Agent 产品与体验",
     seriesSlug: "agent-products-ux",
-    visuals: visual("human-in-the-loop-beyond-approval", "人在目标设定、过程干预、例外处理和结果复核四个环节参与 Agent", "人不是流程末端的签字者，而是控制系统的一部分。"),
     sources: [
       { label: "NIST：AI Risk Management Framework", href: "https://www.nist.gov/itl/ai-risk-management-framework" },
       { label: "OpenAI：Operator safety and privacy", href: "https://openai.com/index/introducing-operator/" },
@@ -100,7 +96,6 @@ export const batchBPosts: Post[] = [
     topic: "AI 构建",
     series: "AI 软件工程",
     seriesSlug: "ai-software-engineering",
-    visuals: visual("ai-coding-from-generation-to-delivery", "从需求、计划、代码修改、测试到 Pull Request 的 AI 软件交付链", "代码只是中间产物，可合并的变更才是交付结果。"),
     sources: [
       { label: "OpenAI：Introducing Codex", href: "https://openai.com/index/introducing-codex/" },
       { label: "GitHub Docs：About Copilot coding agent", href: "https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent" },
@@ -129,7 +124,6 @@ export const batchBPosts: Post[] = [
     topic: "AI 构建",
     series: "AI 软件工程",
     seriesSlug: "ai-software-engineering",
-    visuals: visual("agent-control-plane-after-harness-loop-graph", "Harness 承载执行、Loop 推动反馈、Graph 编排依赖，控制平面统一策略和观测", "当运行规模上升，治理必须从每个 Agent 的内部逻辑中抽离。"),
     sources: [
       { label: "OpenAI Agents SDK：Documentation", href: "https://openai.github.io/openai-agents-python/" },
       { label: "LangGraph：Durable execution", href: "https://docs.langchain.com/oss/python/langgraph/durable-execution" },
@@ -158,7 +152,6 @@ export const batchBPosts: Post[] = [
     topic: "AI 构建",
     series: "AI 软件工程",
     seriesSlug: "ai-software-engineering",
-    visuals: visual("pull-request-human-agent-interface", "Issue 委派给 Agent，Agent 通过 Pull Request 提交差异、检查和说明，人类审阅后合并", "PR 的价值不是展示代码，而是承载一次完整、可追踪的协作。"),
     sources: [
       { label: "GitHub Docs：About pull requests", href: "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests" },
       { label: "GitHub Docs：Copilot coding agent best practices", href: "https://docs.github.com/en/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/best-practices-for-using-copilot-to-work-on-tasks" },
@@ -186,7 +179,6 @@ export const batchBPosts: Post[] = [
     topic: "AI 构建",
     series: "AI 软件工程",
     seriesSlug: "ai-software-engineering",
-    visuals: visual("coding-agents-reshape-software-teams", "传统职能型研发团队与以任务编排、平台治理和审阅为核心的 Agent 团队对比", "Agent 增加实现供给后，稀缺资源会移动到判断、边界和验收。"),
     sources: [
       { label: "DORA：Research program", href: "https://dora.dev/research/" },
       { label: "GitHub：Research on Copilot productivity", href: "https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/" },
@@ -215,7 +207,6 @@ export const batchBPosts: Post[] = [
     topic: "AI 构建",
     series: "AI 软件工程",
     seriesSlug: "ai-software-engineering",
-    visuals: visual("repository-memory-for-coding-agents", "仓库规则、架构决策、测试证据和历史变更共同构成可维护的 Agent 记忆", "好记忆不是更多文本，而是在正确作用域提供可验证的约束。"),
     sources: [
       { label: "OpenAI：AGENTS.md guide", href: "https://developers.openai.com/codex/guides/agents-md/" },
       { label: "GitHub Docs：Repository custom instructions", href: "https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-copilot-overview" },
@@ -244,7 +235,6 @@ export const batchBPosts: Post[] = [
     topic: "AI 构建",
     series: "AI 软件工程",
     seriesSlug: "ai-software-engineering",
-    visuals: visual("execution-environment-beats-prompt", "相同任务在脆弱环境与可复现环境中的 Agent 成功路径对比", "提示词决定方向，环境决定能否获得真实反馈并走到终点。"),
     sources: [
       { label: "OpenAI：Introducing Codex", href: "https://openai.com/index/introducing-codex/" },
       { label: "GitHub Docs：Prebuilding Codespaces", href: "https://docs.github.com/en/codespaces/prebuilding-your-codespaces" },
@@ -273,7 +263,6 @@ export const batchBPosts: Post[] = [
     topic: "AI 构建",
     series: "AI 软件工程",
     seriesSlug: "ai-software-engineering",
-    visuals: visual("sandbox-standard-agent-infrastructure", "Agent 在文件、进程、网络、凭据和时间五个边界内运行的沙箱模型", "Sandbox 的目标不是零风险，而是让错误影响可预测、可终止、可恢复。"),
     sources: [
       { label: "OpenAI：Codex system card", href: "https://cdn.openai.com/pdf/8df7697b-c1b2-4222-be00-1fd3298f351d/codex_system_card.pdf" },
       { label: "Firecracker：Secure and fast microVMs", href: "https://firecracker-microvm.github.io/" },
@@ -302,7 +291,6 @@ export const batchBPosts: Post[] = [
     topic: "AI 构建",
     series: "AI 软件工程",
     seriesSlug: "ai-software-engineering",
-    visuals: visual("design-to-code-needs-design-systems", "设计 token、组件映射、生成代码和视觉回归组成的闭环", "生成一次页面很容易，持续维护同一套产品语言才是难题。"),
     sources: [
       { label: "Figma：Introducing Dev Mode", href: "https://www.figma.com/blog/introducing-dev-mode/" },
       { label: "Figma：Introducing the Dev Mode MCP server", href: "https://www.figma.com/blog/introducing-figma-mcp-server/" },
@@ -331,7 +319,6 @@ export const batchBPosts: Post[] = [
     topic: "AI 构建",
     series: "AI 软件工程",
     seriesSlug: "ai-software-engineering",
-    visuals: visual("can-non-programmers-build-software", "从自然语言原型到数据、权限、测试、部署和维护的软件责任阶梯", "门槛下降不等于复杂性消失，复杂性只是从语法迁移到产品责任。"),
     sources: [
       { label: "GitHub：Spark public preview", href: "https://github.blog/changelog/2025-09-30-github-spark-in-public-preview-for-copilot-enterprise-subscribers/" },
       { label: "Replit Docs：Build and publish your first app", href: "https://docs.replit.com/build/your-first-app" },
@@ -360,7 +347,6 @@ export const batchBPosts: Post[] = [
     topic: "AI 构建",
     series: "AI 软件工程",
     seriesSlug: "ai-software-engineering",
-    visuals: visual("ai-generated-technical-debt", "生成速度超过理解、审阅和删除速度后形成的技术债务堆积", "AI 技术债的根源不是机器写代码，而是组织接纳了自己无法解释和维护的变化。"),
     sources: [
       { label: "DORA：Research program", href: "https://dora.dev/research/" },
       { label: "Google：Software Engineering at Google", href: "https://abseil.io/resources/swe-book" },
@@ -389,7 +375,6 @@ export const batchBPosts: Post[] = [
     topic: "增长验证",
     series: "AI 商业与增长",
     seriesSlug: "ai-business-growth",
-    visuals: visual("first-wow-second-unused-chasm", "从首次惊艳到稳定触发、可预期结果和长期习惯的 AI 产品留存路径", "增长的难点不是让用户相信 AI 能做一次，而是让他知道何时值得再用。"),
     sources: [
       { label: "Amplitude：Product analytics guides", href: "https://amplitude.com/guides" },
       { label: "Mixpanel：Product benchmarks", href: "https://mixpanel.com/benchmarks/" },
@@ -418,7 +403,6 @@ export const batchBPosts: Post[] = [
     topic: "增长验证",
     series: "AI 商业与增长",
     seriesSlug: "ai-business-growth",
-    visuals: visual("saas-seat-to-outcome-pricing", "席位、用量、动作、成功结果四种 AI 产品定价单位的风险分配", "计费单位越接近业务价值，供应商承担的交付与归因责任越大。"),
     sources: [
       { label: "Salesforce：Agentforce pricing", href: "https://www.salesforce.com/agentforce/pricing/" },
       { label: "Salesforce Help：Agentforce pricing models", href: "https://help.salesforce.com/s/articleView?id=004811240&language=en_US&type=1" },
@@ -447,7 +431,6 @@ export const batchBPosts: Post[] = [
     topic: "增长验证",
     series: "AI 商业与增长",
     seriesSlug: "ai-business-growth",
-    visuals: visual("ai-product-gross-margin", "AI 产品收入扣除推理、工具、运行环境、人工复核和支持后的毛利瀑布图", "真正该优化的是每个成功结果的总成本，而不是单次 token 单价。"),
     sources: [
       { label: "OpenAI：API pricing", href: "https://openai.com/api/pricing/" },
       { label: "Anthropic：API pricing", href: "https://www.anthropic.com/pricing" },
@@ -476,7 +459,6 @@ export const batchBPosts: Post[] = [
     topic: "增长验证",
     series: "AI 商业与增长",
     seriesSlug: "ai-business-growth",
-    visuals: visual("distribution-beats-better-model", "模型能力通过系统入口、工作流、渠道和信任层逐步转化为用户采用", "模型决定能力上限，分发决定能力是否进入真实行为。"),
     sources: [
       { label: "Apple Developer：App Review Guidelines", href: "https://developer.apple.com/app-store/review/guidelines/" },
       { label: "Google Play Console：Store listing best practices", href: "https://support.google.com/googleplay/android-developer/answer/13393723" },
@@ -497,3 +479,8 @@ export const batchBPosts: Post[] = [
     highlights: ["能力进入真实行为才会转化成业务", "分发是减少采用摩擦", "把一次使用转化为持续工作流"],
   },
 ];
+
+export const batchBPosts: Post[] = batchBPostsBase.map((post) => ({
+  ...post,
+  body: weaveLongForm([...post.body, ...seriesDeepening(post)], batchBDepth[post.slug]),
+}));

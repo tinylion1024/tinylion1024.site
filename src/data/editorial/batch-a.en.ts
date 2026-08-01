@@ -446,14 +446,6 @@ export const batchAPostsEn: Post[] = drafts.map((draft) => ({
   topic: draft.topic,
   series: draft.series,
   seriesSlug: draft.seriesSlug,
-  visuals: [
-    {
-      src: `/articles/editorial/${draft.slug}.svg`,
-      alt: `Conceptual illustration for ${draft.title}`,
-      afterParagraph: 3,
-      caption: `Concept map: ${draft.summary}`,
-    },
-  ],
   sources: draft.sources,
   body: draft.paragraphs,
   highlights: draft.highlights,
