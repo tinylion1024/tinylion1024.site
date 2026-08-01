@@ -1,6 +1,7 @@
 import { batchAPosts } from "./editorial/batch-a";
 import { batchBPosts } from "./editorial/batch-b";
 import { batchCPosts } from "./editorial/batch-c";
+import { peterJulyPosts } from "./editorial/peter-july";
 import { addSeriesVisual } from "./editorial/series";
 import { byNewestDate } from "./publication";
 
@@ -462,6 +463,7 @@ export const editorialPosts: Post[] = [
   ...batchAPosts,
   ...batchBPosts,
   ...batchCPosts,
+  ...peterJulyPosts,
 ].map((post) => addSeriesVisual(post, "zh-CN"));
 
 export const allPosts: Post[] = [...editorialPosts, ...legacyPosts].sort(byNewestDate);
